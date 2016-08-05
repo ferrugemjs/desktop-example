@@ -1,0 +1,8 @@
+div.file-manager-app{
+  height: 100%;
+  width: 100%;
+}
+div.file-manager-app div.titlebar span.titleButton.search{
+  background-image:url(../img/zoom-fit.png);
+
+}

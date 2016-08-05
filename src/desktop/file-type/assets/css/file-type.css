@@ -1,0 +1,23 @@
+div.item{
+  position : relative;
+  height : 64px;
+  width: 56px;
+  padding: 0px;
+  margin: 4px;
+}
+
+div.item div.itemName{
+  margin-top: 48px;
+  font: 10px verdana, arial, helvetica;
+  text-align: center;
+  width:100%;
+}
+
+div.file{
+  background-repeat:no-repeat;
+  background-position:top center;
+}
+
+div.file.text-plain{
+  background-image:url('../img/text-plain.png');
+}

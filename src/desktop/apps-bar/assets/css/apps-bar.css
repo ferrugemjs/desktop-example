@@ -1,0 +1,27 @@
+.apps-bar{
+	padding-top:4px;
+	width:100%;
+}
+
+.apps-bar .app-item{
+	width:48px;
+	height: 48px;
+	background-repeat: no-repeat;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+.apps-bar .app-show{
+	background-image:url('../img/view-list-icons-symbolic.png');
+
+}
+
+.apps-bar .app-config{
+	background-image:url('../img/system-run.png');
+	float:right;
+}
+
+.apps-bar .app-exprorer{
+	background-image:url('../img/document-open.png');
+
+}

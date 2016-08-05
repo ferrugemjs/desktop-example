@@ -1,0 +1,12 @@
+<template name="appsBar" args="$this">	
+	<div style="width:33%">
+		<div class="app-item app-exprorer" click.trigger="$this.hiddenApps(false)"></div>
+	</div>
+	<div style="margin-left:14.5%">
+		<div class="app-item app-show" click.trigger="$this.hiddenApps(true)"></div>
+	</div>
+	
+	<div class="pull-right">
+		<div class="app-item app-config" click.trigger="$this.showConfig=($this.showConfig?false:true);$this.toogleShowConfig($this.showConfig);"></div>	
+	</div>	
+</template>

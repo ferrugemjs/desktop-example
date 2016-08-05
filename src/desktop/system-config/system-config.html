@@ -1,0 +1,20 @@
+<template name="systemConfig" args="$this">
+	<if condition="$this.isOpen">
+		<div class="window-widget system-config-app">			
+			<div class="titlebar">
+				<span class="titleLabel">configuracao</span>
+			    <span class="titleButton pull-right close" click.trigger="$this.isOpen=false;$this.refresh()"></span>
+		  	</div>
+			<div class="contents">
+				<form style="padding:5px">
+					<label style="margin-bottom:5px">system theme:</label>
+					<select change.trigger="$this.setTheme($event.target.value)" style="width:100%">
+						<option value="green-theme">default</option>
+						<option value="green-theme">green-theme</option>
+						<option value="gray-theme">gray-theme</option>
+					</select>				
+				</form>
+			</div>	
+		</div>
+	</if>
+</template>

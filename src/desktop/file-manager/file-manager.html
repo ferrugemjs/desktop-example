@@ -1,0 +1,17 @@
+<template name="fileManager" args="$this">
+	<require from="base_app/file-type/file-type"></require>
+	<require from="base_app/folder-type/folder-type"></require>
+	<if condition="$this.isOpen">	
+		<div class="window-widget file-manager-app">			
+			<div class="titlebar">
+				<span class="titleLabel">~./{$this.actualUrl}</span>
+			    <span class="titleButton pull-right close" click.trigger="$this.isOpen=false;$this.refresh()"></span>
+			    <span class="titleButton pull-right search"></span>
+		  	</div>
+			<div class="contents">
+				<file-type each="file in $this.files" path="{file.path}" name="{file.name}"></file-type>
+				<folder-type each="folder in $this.folders" path="{folder.path}" name="{folder.name}"></folder-type>
+			</div>	
+		</div>	
+	</if>
+</template>
