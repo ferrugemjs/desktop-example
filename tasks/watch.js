@@ -9,7 +9,7 @@ gulp.task('static_serve', function() {
     livereload: true,
     middleware: function(connect, opt) {
         var apiProxy = proxy('/rest', {
-            target: 'http://localhost:8330'
+            target: 'http://192.168.1.59:8330'
             ,changeOrigin: true
             ,pathRewrite: {
                 '^/rest' : '/rest'           

@@ -8,9 +8,10 @@ System.config({
   },
 
   map: {
+    "css": "github:systemjs/plugin-css@0.1.23",
     "es6-shim": "npm:es6-shim@0.35.1",
     "event-emitter-lite": "npm:event-emitter-lite@1.0.5",
-    "ferrugemjs": "npm:ferrugemjs@0.8.6",
+    "ferrugemjs": "npm:ferrugemjs@0.8.8",
     "incremental-dom": "npm:incremental-dom@0.4.1",
     "promised-xhr": "npm:promised-xhr@1.2.0",
     "ts-helpers": "npm:ts-helpers@1.1.1",
@@ -78,9 +79,6 @@ System.config({
     },
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
-    },
-    "npm:ferrugemjs@0.8.6": {
-      "css": "github:systemjs/plugin-css@0.1.23"
     }
   }
 });
