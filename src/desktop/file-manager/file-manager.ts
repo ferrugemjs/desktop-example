@@ -12,7 +12,7 @@ export class FileManager{
 	constructor(){
 		this.baseUrl = "example";
 		this.actualUrl = this.baseUrl;
-		this.isOpen = false;
+		this.isOpen = true;
 	}
 	private attached():void{
 		fileTypeStore.onChange.subscribe(()=>{
@@ -28,6 +28,14 @@ export class FileManager{
 				(<any>this).refresh();
 			}
 		});
+
+		appsBarDispatch.dispatchShowFileManager.subscribe((on)=>{
+			this.isOpen = on;
+			if((<any>this).refresh){
+				(<any>this).refresh();
+			}
+		});
+		
 
 		fileManagerDispatch.dispatchChangeDir.subscribe((new_dir)=>{
 			this.actualUrl = new_dir;

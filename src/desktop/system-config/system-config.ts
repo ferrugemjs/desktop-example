@@ -15,7 +15,7 @@ export class SystemConfig{
 			}
 		});
 	}
-	private setTheme(theme:string):void{
-		systemConfigDispatch.dispatchChangeTheme.emit(theme);
+	private setBackgroundImage(bckimg:string):void{
+		systemConfigDispatch.dispatchChangeBackgroundImage.emit(bckimg);
 	}
 }

@@ -30,13 +30,9 @@ body > div{
 }
 .main-app{
 	height:100%;
-	background-repeat: no-repeat;
-}
-.main-app.green-theme{
-	background-image: url('../img/green-background-image.jpg');
-}
-.main-app.gray-theme{
-	background-image: url('../img/gray-background-image.jpg');
+	background-repeat:repeat;
+	background-color:#80BDA4;
+	background-position: top center;
 }
 
 .main-app,.main-app > div,.init-app-tag{

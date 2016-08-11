@@ -8,4 +8,7 @@ export class AppsBar{
 	private toogleShowConfig(on:boolean):void{
 		systemConfigDispatch.dispatchCloser.emit(on);
 	}
+	private showManagerFiles():void{
+		appsBarDispatch.dispatchShowFileManager.emit(true);
+	}
 }

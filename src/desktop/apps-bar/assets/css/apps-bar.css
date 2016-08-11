@@ -12,16 +12,16 @@
 }
 
 .apps-bar .app-show{
-	background-image:url('../img/view-list-icons-symbolic.png');
+	background-image:url('../img/view-list-icons-symbolic-min.png');
 
 }
 
 .apps-bar .app-config{
-	background-image:url('../img/system-run.png');
+	background-image:url('../img/system-run-min.png');
 	float:right;
 }
 
 .apps-bar .app-exprorer{
-	background-image:url('../img/document-open.png');
+	background-image:url('../img/document-open-min.png');
 
 }

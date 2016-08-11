@@ -6,13 +6,18 @@
 			    <span class="titleButton pull-right close" click.trigger="$this.isOpen=false;$this.refresh()"></span>
 		  	</div>
 			<div class="contents">
-				<form style="padding:5px">
-					<label style="margin-bottom:5px">system theme:</label>
-					<select change.trigger="$this.setTheme($event.target.value)" style="width:100%">
-						<option value="green-theme">default</option>
-						<option value="green-theme">green-theme</option>
-						<option value="gray-theme">gray-theme</option>
+				<form style="padding:1%;width:98%">
+					<div style="{'width':'100%','height':'120px','border':'1px solid green','background-image':'url(dist/desktop/main/assets/img/'+($this.imgBackground?$this.imgBackground:'dotted_bg-min.png')+')'}">						
+					</div>
+					<label style="margin-bottom:5px">background:</label>
+					<select change.trigger="$this.imgBackground=$event.target.value;$this.refresh()" style="width:90%">
+						<option value="dotted_bg-min.png">default</option>
+						<option value="gray-background-image-min.jpg">gray-min-image</option>
+						<option value="gray-background-image.jpg">gray-image</option>
+						<option value="green-background-image.jpg">green-image</option>
+						<option value="ttpat-min.jpg">ttpat-background</option>
 					</select>				
+					<button type="submit" style="width:10%" click.trigger="$this.setBackgroundImage($this.imgBackground||'dotted_bg-min.png')">ok</button>
 				</form>
 			</div>	
 		</div>

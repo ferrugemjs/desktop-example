@@ -1,5 +1,6 @@
 import $xhr = require('promised-xhr');
 import systemConfigDispatch from "../system-config/system-config-dispatch";
+import appsBarDispatch from "../apps-bar/apps-bar-dispatch";
 
 $xhr.base = "";
 /*
@@ -10,16 +11,21 @@ $xhr.base = "";
 */
 
 export class Main{
-	private selectedTheme:string;
+	private selectedBackgroundImage:string;
+	private showFileManager:boolean;
 	constructor(){
-		this.selectedTheme = "gray-theme";
+		this.selectedBackgroundImage = "dotted_bg-min.png";
 	}
 	private attached():void{
 		//console.log("apenas um main!");
 		//this.refresh();
-		systemConfigDispatch.dispatchChangeTheme.subscribe((theme)=>{
-			this.selectedTheme = theme;
+		systemConfigDispatch.dispatchChangeBackgroundImage.subscribe((bckimg)=>{
+			this.selectedBackgroundImage = bckimg;
 			(<any>this).refresh();
+		});
+		appsBarDispatch.dispatchShowFileManager.once((show)=>{
+			this.showFileManager = show;
+			(<any>this).refresh();			
 		});
 	}
 	private removed():void{

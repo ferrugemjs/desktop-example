@@ -1,5 +1,5 @@
 <template name="fileType" args="$this">
 	<div class="item file text-plain">
-		<div class="itemName">{$this.name}</div>
+		<div class="itemName">{$this.name.substring(0,$this.name.lastIndexOf('.'))}</div>
 	</div>
 </template>

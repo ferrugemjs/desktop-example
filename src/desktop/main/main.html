@@ -12,13 +12,15 @@
 	<require from="base_app/apps-bar/apps-bar"></require>
 	<require from="base_app/status-bar/status-bar"></require>
 	<require from="base_app/system-config/system-config"></require>
-	<div class="{'main-app '+$this.selectedTheme}">
+	<div data-background="{$this.selectedBackgroundImage}" class="main-app" style="{'background-image':'url(dist/desktop/main/assets/img/'+($this.selectedBackgroundImage)+')'}">
 		<status-bar></status-bar>
 		<div class="aplication-area">
-			<file-manager title="ops my friend"></file-manager>
+			<if condition="$this.showFileManager">
+				<file-manager title="ops my friend"></file-manager>				
+			</if>			
 			<system-config ops="teste"></system-config>
 		</div>	
-		<div class="main-apps-bar">
+		<div class="{'main-apps-bar'}">
 			<apps-bar></apps-bar>
 		</div>			
 	</div>
