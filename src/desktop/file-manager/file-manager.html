@@ -3,12 +3,15 @@
 	<require from="base_app/folder-type/folder-type"></require>
 	<if condition="$this.isOpen">	
 		<div class="window-widget file-manager-app">			
-			<div class="titlebar">
-				<span class="titleLabel">~./{$this.actualUrl}</span>
+			<div class="titlebar" data-url="{$this.actualUrl}">
+				<span each="path in $this.actualUrl.split('/')" data-href="{$item}" click.trigger="$this.setDirectory(path)" class="titleLabel">{($item >0?' > ':'')+path}</span>
 			    <span class="titleButton pull-right close" click.trigger="$this.isOpen=false;$this.refresh()"></span>
-			    <span class="titleButton pull-right search"></span>
+			    <span click.trigger="$this._showSearch=($this._showSearch)?false:true;$this.fileSearch='';$this.refresh()" class="{'titleButton pull-right search '+($this._showSearch?'is-pressed':'')}"></span>
 		  	</div>
 			<div class="contents">
+				<div if="$this._showSearch" class="full">
+					<input class="search-file" placeholder="...search here!" change.trigger="$this.fileSearch=$event.target.value;$this.refresh()" type="text"/>
+				</div>
 				<file-type each="file in $this.files" path="{file.path}" name="{file.name}"></file-type>
 				<folder-type each="folder in $this.folders" path="{folder.path}" name="{folder.name}"></folder-type>
 			</div>	

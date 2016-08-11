@@ -37,7 +37,7 @@ div.window-widget div.titlebar span.titleLabel{
 
 
 
-div.window-widget div.titlebar span.titleButton:hover{
+div.window-widget div.titlebar span.titleButton:hover,div.window-widget div.titlebar span.is-pressed{
   background-color: #797979;
   border-color:black;
 }

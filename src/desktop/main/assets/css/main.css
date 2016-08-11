@@ -25,6 +25,9 @@ body > div{
 .pull-right{
 	float:right;
 }
+.full{
+	width: 100%;
+}
 .init-app-tag{
 	height:100%;
 }

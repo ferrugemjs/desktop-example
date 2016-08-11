@@ -25,7 +25,6 @@ class FolderTypeStore{
 			this.foldertype = res.body;
 			this.onChange.emit(null);
 			statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.RECEIVED);
-		
 		});
 	}
 	public get():IFolderType[]{
