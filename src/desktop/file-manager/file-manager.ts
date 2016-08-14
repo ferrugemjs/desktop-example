@@ -12,6 +12,7 @@ export class FileManager{
 	private fileSearch:string;
 	constructor(){
 		this.baseUrl = "example";
+		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
 		this.isOpen = true;
 		this.fileSearch = "";
@@ -44,21 +45,18 @@ export class FileManager{
 		});
 		
 	}
-
 	private get files():IFileType[]{
 		if(this.fileSearch){
-			return fileTypeStore.get().filter((file_item)=>{
-				return file_item.name.indexOf(this.fileSearch) > -1;
-			});	
+			const filterBySearch = (file_item:IFileType) => file_item.name.indexOf(this.fileSearch) > -1;
+			return fileTypeStore.get().filter(filterBySearch);
 		}
 		return fileTypeStore.get();		
 	}
 
 	private get folders():IFolderType[]{
 		if(this.fileSearch){
-			return folderTypeStore.get().filter((folder_item)=>{
-				return folder_item.name.indexOf(this.fileSearch) > -1;
-			});	
+			const filterBySearch = (folder_item:IFolderType) => folder_item.name.indexOf(this.fileSearch) > -1;
+			return folderTypeStore.get().filter(filterBySearch);	
 		}	
 		return folderTypeStore.get();
 	}
@@ -66,15 +64,20 @@ export class FileManager{
 		if(directoryindex > 0){
 			let fileDirectory:string = "";
 			let fileArray:string[] = this.actualUrl.split("/");
-			for(let i=0;i < directoryindex+1;i++){
-				if(fileArray[i]){
-					fileDirectory += fileArray[i]+"/";
-				}
-			};
-			this.actualUrl = fileDirectory;
+			//console.log(directoryindex,fileArray.length);
+			if(directoryindex+1 < fileArray.length){			
+				for(let i=0;i < directoryindex+1;i++){
+					if(fileArray[i]){
+						fileDirectory += fileArray[i]+"/";
+					}
+				};
+				this.actualUrl = fileDirectory.substring(0,fileDirectory.length-1);
+				fileManagerDispatch.dispatchChangeDir.emit(this.actualUrl);
+			}
 		}else{
 			this.actualUrl = this.baseUrl;
+			fileManagerDispatch.dispatchChangeDir.emit(this.actualUrl);
 		};
-		fileManagerDispatch.dispatchChangeDir.emit(this.actualUrl);
+		
 	}
 }

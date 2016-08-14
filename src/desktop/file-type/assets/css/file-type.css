@@ -18,6 +18,38 @@ div.file{
   background-position:top center;
 }
 
-div.file.text-plain{
+div.file.txt{
   background-image:url('../img/text-plain.png');
+}
+
+div.file.js{
+  background-image:url('../img/text-x-javascript.png');
+}
+
+div.file.json{
+  background-image:url('../img/text-x-source.png');
+}
+
+div.file.sh{
+  background-image:url('../img/shellscript.png');
+}
+
+div.file.sql,div.file.sqlite,div.file.db{
+  background-image:url('../img/text-x-sql.png');
+}
+
+div.file.css{
+  background-image:url('../img/text-css.png');
+}
+
+div.file.zip{
+  background-image:url('../img/application-x-archive.png');
+}
+
+div.file.html{
+  background-image:url('../img/text-xhtml_xml.png');
+}
+
+div.file.png,div.file.jpg,div.file.gif{
+  background-image:url('../img/image-x-generic.png');
 }
