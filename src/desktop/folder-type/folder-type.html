@@ -1,4 +1,5 @@
 <template args="$this">
+	<require from="./assets/css/folder-type.css!"></require>
 	<div data-path="{$this.path}" class="item folder" click.trigger="$this.toFolder()">
       <div class="itemName">{$this.name}</div>
     </div>

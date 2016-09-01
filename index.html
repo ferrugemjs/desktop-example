@@ -4,26 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>FerrugemJS desktop project</title>
-    <!--Import Google Icon Font-->
-    <!--Import materialize.css-->
-    <!--
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    -->
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
   </head>
   <body>    
     <div app="dist/desktop/main/main"></div>
     <script>
-	     System.config({
-      		map:{
-      			"base_app":"./dist/desktop"
-      		}
-	     });
       System.import("ferrugemjs");
     </script>
   </body>

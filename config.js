@@ -11,7 +11,7 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.23",
     "es6-shim": "npm:es6-shim@0.35.1",
     "event-emitter-lite": "npm:event-emitter-lite@1.0.5",
-    "ferrugemjs": "npm:ferrugemjs@0.8.8",
+    "ferrugemjs": "npm:ferrugemjs@0.9.1",
     "incremental-dom": "npm:incremental-dom@0.4.1",
     "promised-xhr": "npm:promised-xhr@1.2.0",
     "ts-helpers": "npm:ts-helpers@1.1.1",
@@ -49,6 +49,10 @@ System.config({
     },
     "npm:es6-shim@0.35.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:ferrugemjs@0.9.1": {
+      "css": "github:systemjs/plugin-css@0.1.27",
+      "incremental-dom": "npm:incremental-dom@0.4.1"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"

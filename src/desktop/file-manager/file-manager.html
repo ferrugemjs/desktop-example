@@ -1,6 +1,7 @@
 <template name="fileManager" args="$this">
-	<require from="base_app/file-type/file-type"></require>
-	<require from="base_app/folder-type/folder-type"></require>
+	<require from="./assets/css/file-manager.css!"></require>
+	<require from="../file-type/file-type"></require>
+	<require from="../folder-type/folder-type"></require>
 	<if condition="$this.isOpen">	
 		<div class="window-widget file-manager-app">			
 			<div class="titlebar" data-url="{$this.actualUrl}">

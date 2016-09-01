@@ -1,4 +1,5 @@
 <template name="fileType" args="$this">
+	<require from="./assets/css/file-type.css!"></require>
 	<div class="{'item file '+$this.extension}">
 		<div class="itemName">{$this.name.substring(0,$this.name.lastIndexOf('.'))}</div>
 	</div>

@@ -1,17 +1,10 @@
 <template name="mainApp" args="$this">
-	<link href="dist/desktop/main/assets/css/main.css" rel="stylesheet"></link>
-	<link href="dist/desktop/widget/assets/css/window-widget.css" rel="stylesheet"></link>
-	<link href="dist/desktop/file-manager/assets/css/file-manager.css" rel="stylesheet"></link>
-	<link href="dist/desktop/folder-type/assets/css/folder-type.css" rel="stylesheet"></link>
-	<link href="dist/desktop/file-type/assets/css/file-type.css" rel="stylesheet"></link>
-	<link href="dist/desktop/apps-bar/assets/css/apps-bar.css" rel="stylesheet"></link>
-	<link href="dist/desktop/status-bar/assets/css/status-bar.css" rel="stylesheet"></link>
-
-	<link href="dist/desktop/system-config/assets/css/system-config.css" rel="stylesheet"></link>
-	<require from="base_app/file-manager/file-manager"></require>
-	<require from="base_app/apps-bar/apps-bar"></require>
-	<require from="base_app/status-bar/status-bar"></require>
-	<require from="base_app/system-config/system-config"></require>
+	<require from="./assets/css/main.css!"></require>
+	<require from="../widget/assets/css/window-widget.css!"></require>
+	<require from="../file-manager/file-manager"></require>
+	<require from="../apps-bar/apps-bar"></require>
+	<require from="../status-bar/status-bar"></require>
+	<require from="../system-config/system-config"></require>
 	<div data-background="{$this.selectedBackgroundImage}" class="main-app" style="{'background-image':'url(dist/desktop/main/assets/img/'+($this.selectedBackgroundImage)+')'}">
 		<status-bar></status-bar>
 		<div class="aplication-area">
