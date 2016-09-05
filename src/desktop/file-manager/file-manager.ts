@@ -33,6 +33,7 @@ export class FileManager{
 		});
 
 		appsBarDispatch.dispatchShowFileManager.subscribe((on)=>{
+			console.log('ops!');
 			this.isOpen = on;
 			if((<any>this).refresh){
 				(<any>this).refresh();

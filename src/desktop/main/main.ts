@@ -23,7 +23,8 @@ export class Main{
 			this.selectedBackgroundImage = bckimg;
 			(<any>this).refresh();
 		});
-		appsBarDispatch.dispatchShowFileManager.once((show)=>{
+		appsBarDispatch.dispatchShowFileManager.subscribe((show)=>{
+			console.log('mostrada no maints');
 			this.showFileManager = show;
 			(<any>this).refresh();			
 		});
