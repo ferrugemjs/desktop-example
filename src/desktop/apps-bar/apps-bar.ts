@@ -9,7 +9,7 @@ export class AppsBar{
 		systemConfigDispatch.dispatchCloser.emit(on);
 	}
 	private showManagerFiles():void{
-		console.log('abrindo file-manager!');
+		//console.log('abrindo file-manager!');
 		appsBarDispatch.dispatchShowFileManager.emit(true);
 	}
 }

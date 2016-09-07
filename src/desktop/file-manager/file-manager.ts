@@ -5,6 +5,8 @@ import folderTypeStore from "../folder-type/folder-type-store";
 import fileManagerDispatch from "./file-manager-dispatch";
 import appsBarDispatch from "../apps-bar/apps-bar-dispatch";
 
+
+
 export class FileManager{
 	private baseUrl:string;
 	private actualUrl:string;
@@ -33,7 +35,7 @@ export class FileManager{
 		});
 
 		appsBarDispatch.dispatchShowFileManager.subscribe((on)=>{
-			console.log('ops!');
+			//console.log('ops!');
 			this.isOpen = on;
 			if((<any>this).refresh){
 				(<any>this).refresh();
@@ -58,7 +60,7 @@ export class FileManager{
 		if(this.fileSearch){
 			const filterBySearch = (folder_item:IFolderType) => folder_item.name.indexOf(this.fileSearch) > -1;
 			return folderTypeStore.get().filter(filterBySearch);	
-		}	
+		}
 		return folderTypeStore.get();
 	}
 	private setDirectory(directoryindex:number):void{

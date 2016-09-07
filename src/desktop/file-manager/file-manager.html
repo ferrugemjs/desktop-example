@@ -14,6 +14,9 @@
 					<input class="search-file" placeholder="...search here!" change.trigger="$this.fileSearch=$event.target.value;$this.refresh()" type="text"/>
 				</div>
 				<file-type each="file in $this.files" path="{file.path}" name="{file.name}" extension="{file.extension}"></file-type>
+				<h1 each="folder in $this.folders">
+				{folder.path}
+				</h1>
 				<folder-type each="folder in $this.folders" path="{folder.path}" name="{folder.name}"></folder-type>
 			</div>	
 		</div>	
