@@ -4,15 +4,20 @@ var ts = require('gulp-typescript');
 
 var tsConfig = require("../tsconfig.json").compilerOptions;
 
-gulp.task('compile',function(){
-    //console.log(""+destPackagePathAppView);
+
+function compile_ts(path){
+    //console.log(path);
     return gulp.src([
-			"./src/**/*.ts"
+            path
             ,"./jspm_packages/npm/event-emitter-lite@1.0.5/*.d.ts"
         ])
         .pipe(ts(tsConfig))
         //.pipe(uglify())
-        .pipe(gulp.dest(tsConfig.outDir));   
+        .pipe(gulp.dest(tsConfig.outDir));
+};
+
+gulp.task('compile',function(){
+    return  compile_ts("./src/**/*.ts");
 });
 
 gulp.task('copy_assets',function(){
@@ -22,3 +27,4 @@ gulp.task('copy_assets',function(){
     .pipe(gulp.dest(tsConfig.outDir));
 });
 
+module.exports = compile_ts;

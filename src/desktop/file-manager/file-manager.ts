@@ -16,14 +16,19 @@ export class FileManager{
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
-		this.isOpen = true;
+		this.isOpen = false;
 		this.fileSearch = "";
+	}
+	private detached():void{
+		console.log('removido!!!');
 	}
 	private attached():void{
 		fileTypeStore.onChange.subscribe(()=>{
+			//console.log(fileTypeStore.get());
 			(<any>this).refresh();
 		});
 		folderTypeStore.onChange.subscribe(()=>{
+			//console.log(folderTypeStore.get());
 			(<any>this).refresh();
 		});
 		
@@ -44,6 +49,7 @@ export class FileManager{
 		
 
 		fileManagerDispatch.dispatchChangeDir.subscribe((new_dir)=>{
+			//console.log(new_dir);
 			this.actualUrl = new_dir;
 		});
 		
@@ -64,6 +70,7 @@ export class FileManager{
 		return folderTypeStore.get();
 	}
 	private setDirectory(directoryindex:number):void{
+		//console.log(directoryindex);
 		if(directoryindex > 0){
 			let fileDirectory:string = "";
 			let fileArray:string[] = this.actualUrl.split("/");
