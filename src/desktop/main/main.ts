@@ -14,7 +14,7 @@ export class Main{
 		systemConfigDispatch.dispatchChangeBackgroundImage.subscribe((bckimg)=>{
 			this.selectedBackgroundImage = bckimg;
 			//document.getElementsByClassName("main-app")[0]
-			//(<any>this).refresh();
+			(<any>this).refresh();
 		});
 	}
 	private deatached():void{
