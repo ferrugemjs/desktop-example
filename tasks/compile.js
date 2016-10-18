@@ -9,11 +9,7 @@ function compile_ts(path){
     //console.log(path);
     return gulp.src([
             path
-<<<<<<< HEAD
             ,"./jspm_packages/npm/event-emitter-lite@*/*.d.ts"
-=======
-            ,"./jspm_packages/npm/event-emitter-lite*/*.d.ts"
->>>>>>> 7eb96cebb7cc91e305a2442f17334a529f3b5a67
         ])
         .pipe(ts(tsConfig))
         //.pipe(uglify())
