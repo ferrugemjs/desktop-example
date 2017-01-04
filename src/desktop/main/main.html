@@ -5,6 +5,7 @@
 	<require from="../apps-bar/apps-bar"></require>
 	<require from="../status-bar/status-bar"></require>
 	<require from="../system-config/system-config"></require>
+	<require from="../widget/radial-progress-bar"></require>
 	<div data-background="{$this.selectedBackgroundImage}" class="main-app" style="{'background-image':'url(dist/desktop/main/assets/img/'+($this.selectedBackgroundImage)+')'}">
 		<status-bar></status-bar>
 		<div class="aplication-area">
@@ -13,6 +14,7 @@
 		</div>	
 		<div class="{'main-apps-bar'}">
 			<apps-bar></apps-bar>
-		</div>			
+		</div>	
+		<radial-progress-bar bgcolor="pink"></radial-progress-bar>		
 	</div>
 </template>
