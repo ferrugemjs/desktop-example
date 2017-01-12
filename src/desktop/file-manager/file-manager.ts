@@ -12,12 +12,22 @@ export class FileManager{
 	private actualUrl:string;
 	private isOpen:boolean;
 	private fileSearch:string;
+	private inSearch:boolean;
 	constructor(){
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
 		this.isOpen = false;
 		this.fileSearch = "";
+		this.inSearch=false;
+	}
+	private close():void{
+		this.isOpen=false;
+		this.refresh();
+	}
+	private showSearch():void{
+		this.inSearch=!this.inSearch;
+		this.refresh();
 	}
 	private detached():void{
 		console.log('removido!!!');

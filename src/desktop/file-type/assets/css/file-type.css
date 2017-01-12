@@ -1,4 +1,4 @@
-div.item{
+.file-manager-item > div.item{
   position : relative;
   height : 64px;
   width: 56px;
@@ -6,50 +6,52 @@ div.item{
   margin: 4px;
 }
 
-div.item div.itemName{
+.file-manager-item > div.item div.itemName{
   margin-top: 48px;
   font: 10px verdana, arial, helvetica;
   text-align: center;
   width:100%;
 }
 
-div.file{
+.file-manager-item.file-type > div.file{
   background-repeat:no-repeat;
   background-position:top center;
 }
 
-div.file.txt{
+.file-manager-item.file-type > div.file.txt{
   background-image:url('../img/text-plain.png');
 }
 
-div.file.js{
+.file-manager-item.file-type > div.file.js{
   background-image:url('../img/text-x-javascript.png');
 }
 
-div.file.json{
+.file-manager-item.file-type > div.file.json{
   background-image:url('../img/text-x-source.png');
 }
 
-div.file.sh{
+.file-manager-item.file-type > div.file.sh{
   background-image:url('../img/shellscript.png');
 }
 
-div.file.sql,div.file.sqlite,div.file.db{
+.file-manager-item.file-type > div.file.sql,div.file.sqlite,div.file.db{
   background-image:url('../img/text-x-sql.png');
 }
 
-div.file.css{
+.file-manager-item.file-type > div.file.css{
   background-image:url('../img/text-css.png');
 }
 
-div.file.zip{
+.file-manager-item.file-type > div.file.zip{
   background-image:url('../img/application-x-archive.png');
 }
 
-div.file.html{
+.file-manager-item.file-type > div.file.html{
   background-image:url('../img/text-xhtml_xml.png');
 }
 
-div.file.png,div.file.jpg,div.file.gif{
+.file-manager-item.file-type > div.file.png
+,.file-manager-item.file-type > div.file.jpg
+,.file-manager-item.file-type > div.file.gif{
   background-image:url('../img/image-x-generic.png');
 }

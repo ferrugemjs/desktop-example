@@ -1,4 +1,4 @@
-<template name="radialProgressBar" args="$this">
+<template>
 	<style>
 		.radial-progress-bar{
 			width:auto !important;
@@ -24,6 +24,6 @@
 	</style>
 	<h3>Radial</h3>
 	<div class="bar">
-		<div class="clip-bar" style="{backgroundColor:$this.bgcolor}"></div>
+		<div class="clip-bar" style="${'background-color:'+this.bgcolor}"></div>
 	</div>
 </template>

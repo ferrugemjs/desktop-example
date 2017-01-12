@@ -9,14 +9,6 @@ export class FolderType implements IFolderType{
 		this.path="";
 		this.name = "";
 	}
-	private attached():void{
-		//console.log(`${this.name} / ${this.path}`);
-	}
-	private setName(name:string):void{
-		//console.log(`nome de ${this.name} para ${name}`);
-		this.name = name;
-		(<any>this).refresh();
-	}
 	private toFolder(){
 		fileManagerDispatch.dispatchChangeDir.emit(this.path);
 	}

@@ -8,11 +8,4 @@ export class FileType implements IFileType{
 		this.name = "default name";
 		this.extension = "";
 	}
-	private attached():void{}
-
-	private setExtension(new_ext:string):void{
-		//console.log(new_ext);
-		this.extension = new_ext;
-		(<any>this).refresh();
-	}
 }

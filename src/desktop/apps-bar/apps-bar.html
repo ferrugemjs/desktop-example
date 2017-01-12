@@ -1,13 +1,13 @@
-<template name="appsBar" args="$this">	
+<template>	
 	<require from="./assets/css/apps-bar.css!"></require>
 	<div style="width:33%">
-		<div class="app-item app-exprorer" click.trigger="$this.showManagerFiles()"></div>
+		<div class="app-item app-exprorer" click.trigger="this.showManagerFiles"></div>
 	</div>
 	<div style="margin-left:14.5%">
-		<div class="app-item app-show" click.trigger="$this.hiddenApps(true)"></div>
+		<div class="app-item app-show" click.trigger="this.hiddenApps"></div>
 	</div>
 	
 	<div class="pull-right">
-		<div class="app-item app-config" click.trigger="$this.showConfig=($this.showConfig?false:true);$this.toogleShowConfig($this.showConfig);"></div>	
+		<div class="app-item app-config"></div>	
 	</div>	
 </template>

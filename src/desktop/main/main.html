@@ -1,4 +1,4 @@
-<template name="mainApp" args="$this">
+<template>
 	<require from="./assets/css/main.css!"></require>
 	<require from="../widget/assets/css/window-widget.css!"></require>
 	<require from="../file-manager/file-manager"></require>
@@ -6,15 +6,18 @@
 	<require from="../status-bar/status-bar"></require>
 	<require from="../system-config/system-config"></require>
 	<require from="../widget/radial-progress-bar"></require>
-	<div data-background="{$this.selectedBackgroundImage}" class="main-app" style="{'background-image':'url(dist/desktop/main/assets/img/'+($this.selectedBackgroundImage)+')'}">
+
+	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url(dist/desktop/main/assets/img/'+(this.selectedBackgroundImage)+')'}">
 		<status-bar></status-bar>
 		<div class="aplication-area">
 			<file-manager title="ops my friend"></file-manager>		
 			<system-config ops="teste"></system-config>
 		</div>	
-		<div class="{'main-apps-bar'}">
+		<div class="main-apps-bar">
 			<apps-bar></apps-bar>
 		</div>	
-		<radial-progress-bar bgcolor="pink"></radial-progress-bar>		
+		<!--
+		<radial-progress-bar bgcolor="pink"></radial-progress-bar>	
+		-->	
 	</div>
 </template>

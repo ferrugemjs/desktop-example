@@ -1,24 +1,24 @@
-<template name="systemConfig" args="$this">
+<template>
 	<require from="./assets/css/system-config.css!"></require>
-	<if condition="$this.isOpen">
+	<if condition="this.isOpen">
 		<div class="window-widget system-config-app">			
 			<div class="titlebar">
 				<span class="titleLabel">configuracao</span>
-			    <span class="titleButton pull-right close" click.trigger="$this.isOpen=false;$this.refresh()"></span>
+			    <span class="titleButton pull-right close" click.trigger="this.refresh"></span>
 		  	</div>
 			<div class="contents">
 				<form style="padding:1%;width:98%">
-					<div style="{'width':'100%','height':'120px','border':'1px solid green','background-image':'url(dist/desktop/main/assets/img/'+($this.imgBackground?$this.imgBackground:'dotted_bg-min.png')+')'}">						
+					<div style="${'width:100%;height:120px;border:1px solid green;background-image:url(dist/desktop/main/assets/img/'+(this.imgBackground?this.imgBackground:'dotted_bg-min.png')+')'}">						
 					</div>
 					<label style="margin-bottom:5px">background:</label>
-					<select change.trigger="$this.imgBackground=$event.target.value;$this.refresh()" style="width:90%">
+					<select value.bind="this.imgBackground" style="width:90%">
 						<option value="dotted_bg-min.png">default</option>
 						<option value="gray-background-image-min.jpg">gray-min-image</option>
 						<option value="gray-background-image.jpg">gray-image</option>
 						<option value="green-background-image.jpg">green-image</option>
 						<option value="ttpat-min.jpg">ttpat-background</option>
 					</select>				
-					<button type="submit" style="width:10%" click.trigger="$this.setBackgroundImage($this.imgBackground||'dotted_bg-min.png')">ok</button>
+					<button type="submit" style="width:10%">ok</button>
 				</form>
 			</div>	
 		</div>
