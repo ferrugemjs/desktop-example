@@ -52,7 +52,7 @@ body > div{
 	width: 98%;
   	margin-left:1%;
 }
-.main-app .aplication-area > div{
+.main-app .aplication-area > compose-view{
 	width: 100%;
 	height: 100%;
 	

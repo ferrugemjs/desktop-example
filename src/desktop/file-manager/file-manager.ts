@@ -33,7 +33,7 @@ export class FileManager{
 		console.log('removido!!!');
 	}
 	private attached():void{
-		
+		/*
 		fileTypeStore.onChange.subscribe(() => {
 			//console.log(fileTypeStore.get());
 			(<any>this).refresh();
@@ -63,7 +63,7 @@ export class FileManager{
 			//console.log(new_dir);
 			this.actualUrl = new_dir;
 		});
-		
+		*/
 	}
 	private get files():IFileType[]{
 		if(this.fileSearch){
