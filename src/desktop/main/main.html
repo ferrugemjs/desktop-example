@@ -1,20 +1,43 @@
 <template>
 	<require from="./assets/css/main.css!"></require>
 	<require from="../widget/assets/css/window-widget.css!"></require>
-	<require from="../file-manager/file-manager"></require>
 	<require from="../apps-bar/apps-bar"></require>
 	<require from="../status-bar/status-bar"></require>
-	<require from="../system-config/system-config"></require>
 	<require from="../widget/radial-progress-bar"></require>
-
+	<!--
+	<require from="../file-manager/file-manager"></require>
+	-->
 	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url(dist/desktop/main/assets/img/'+(this.selectedBackgroundImage)+')'}">
 		<status-bar></status-bar>
 		<div class="aplication-area">
-			<file-manager title="ops my friend"></file-manager>		
-			<system-config ops="teste"></system-config>
+			<!--
+			<file-manager></file-manager>
+			<if condition="this.appsVisible">
+			-->
+			
+			
+			
+				
+				<for each="app in this.apps">
+		
+					<compose view1="app.path" view="dist/desktop/system-config/system-config" view3="dist/desktop/file-manager/file-manager" title="ops my friend"></compose>
+					<compose view1="app.path" view2="dist/desktop/system-config/system-config" 
+					view="dist/desktop/file-manager/file-manager"
+
+					 title="ops my friend"></compose>
+				
+				</for>
+				
+			<!--						
+			</if>
+			
+			<for each="app in this.apps">
+				<span>${app.path}</span>
+			</for>
+			-->
 		</div>	
 		<div class="main-apps-bar">
-			<apps-bar></apps-bar>
+			<apps-bar on-hidden-apps.subscribe="this.hiddenApps" on-dispatch-task.subscribe="this.loadApp"></apps-bar>
 		</div>	
 		<!--
 		<radial-progress-bar bgcolor="pink"></radial-progress-bar>	

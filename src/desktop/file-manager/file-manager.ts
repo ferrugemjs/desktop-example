@@ -17,7 +17,7 @@ export class FileManager{
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
-		this.isOpen = false;
+		this.isOpen = true;
 		this.fileSearch = "";
 		this.inSearch=false;
 	}
@@ -33,23 +33,24 @@ export class FileManager{
 		console.log('removido!!!');
 	}
 	private attached():void{
-		fileTypeStore.onChange.subscribe(()=>{
+		
+		fileTypeStore.onChange.subscribe(() => {
 			//console.log(fileTypeStore.get());
 			(<any>this).refresh();
 		});
-		folderTypeStore.onChange.subscribe(()=>{
+		folderTypeStore.onChange.subscribe(() => {
 			//console.log(folderTypeStore.get());
 			(<any>this).refresh();
 		});
 		
-		appsBarDispatch.dispatchHidden.subscribe((on)=>{
+		appsBarDispatch.dispatchHidden.subscribe(on => {
 			this.isOpen = !on;
 			if((<any>this).refresh){
 				(<any>this).refresh();
 			}
 		});
 
-		appsBarDispatch.dispatchShowFileManager.subscribe((on)=>{
+		appsBarDispatch.dispatchShowFileManager.subscribe(on => {
 			//console.log('ops!');
 			this.isOpen = on;
 			if((<any>this).refresh){
@@ -58,7 +59,7 @@ export class FileManager{
 		});
 		
 
-		fileManagerDispatch.dispatchChangeDir.subscribe((new_dir)=>{
+		fileManagerDispatch.dispatchChangeDir.subscribe(new_dir => {
 			//console.log(new_dir);
 			this.actualUrl = new_dir;
 		});

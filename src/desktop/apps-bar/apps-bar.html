@@ -1,13 +1,13 @@
 <template>	
 	<require from="./assets/css/apps-bar.css!"></require>
 	<div style="width:33%">
-		<div class="app-item app-exprorer" click.trigger="this.showManagerFiles"></div>
+		<div class="${'app-item '+this.appsBarItens[0].icon}" click.trigger="this.dispatchTask(this.appsBarItens[0])"></div>
 	</div>
 	<div style="margin-left:14.5%">
 		<div class="app-item app-show" click.trigger="this.hiddenApps"></div>
 	</div>
 	
 	<div class="pull-right">
-		<div class="app-item app-config"></div>	
+		<div class="${'app-item '+this.appsBarItens[1].icon}" click.trigger="this.dispatchTask(this.appsBarItens[1])"></div>
 	</div>	
 </template>

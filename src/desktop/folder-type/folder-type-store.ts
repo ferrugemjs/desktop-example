@@ -13,7 +13,6 @@ class FolderTypeStore{
 
 	constructor(){
 		this.foldertype = [];
-
 		this.changeDir("example");
 		fileManagerDispatch.dispatchChangeDir.subscribe((new_dir:string)=>{
 			this.changeDir(new_dir);
