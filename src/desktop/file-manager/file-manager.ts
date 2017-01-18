@@ -2,10 +2,7 @@ import {IFileType} from "../file-type/file-type-interface";
 import {IFolderType} from "../folder-type/folder-type-interface";
 import fileTypeStore from "../file-type/file-type-store";
 import folderTypeStore from "../folder-type/folder-type-store";
-import fileManagerDispatch from "./file-manager-dispatch";
-import appsBarDispatch from "../apps-bar/apps-bar-dispatch";
-
-
+import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 
 export class FileManager{
 	private baseUrl:string;
@@ -13,6 +10,7 @@ export class FileManager{
 	private isOpen:boolean;
 	private fileSearch:string;
 	private inSearch:boolean;
+	public onChangeDir:EventEmitter<string> = new EventEmitter();
 	constructor(){
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
@@ -32,38 +30,13 @@ export class FileManager{
 	private detached():void{
 		console.log('removido!!!');
 	}
-	private attached():void{
-		/*
+	private attached():void{		
 		fileTypeStore.onChange.subscribe(() => {
-			//console.log(fileTypeStore.get());
 			(<any>this).refresh();
 		});
 		folderTypeStore.onChange.subscribe(() => {
-			//console.log(folderTypeStore.get());
 			(<any>this).refresh();
-		});
-		
-		appsBarDispatch.dispatchHidden.subscribe(on => {
-			this.isOpen = !on;
-			if((<any>this).refresh){
-				(<any>this).refresh();
-			}
-		});
-
-		appsBarDispatch.dispatchShowFileManager.subscribe(on => {
-			//console.log('ops!');
-			this.isOpen = on;
-			if((<any>this).refresh){
-				(<any>this).refresh();
-			}
-		});
-		
-
-		fileManagerDispatch.dispatchChangeDir.subscribe(new_dir => {
-			//console.log(new_dir);
-			this.actualUrl = new_dir;
-		});
-		*/
+		});		
 	}
 	private get files():IFileType[]{
 		if(this.fileSearch){
@@ -81,7 +54,7 @@ export class FileManager{
 		return folderTypeStore.get();
 	}
 	private setDirectory(directoryindex:number):void{
-		//console.log(directoryindex);
+		console.log(directoryindex);
 		if(directoryindex > 0){
 			let fileDirectory:string = "";
 			let fileArray:string[] = this.actualUrl.split("/");
@@ -93,11 +66,15 @@ export class FileManager{
 					}
 				};
 				this.actualUrl = fileDirectory.substring(0,fileDirectory.length-1);
-				fileManagerDispatch.dispatchChangeDir.emit(this.actualUrl);
+				this.onChangeDir.emit(this.actualUrl);
+				folderTypeStore.changeDir(this.actualUrl);
+				fileTypeStore.changeDir(this.actualUrl);
 			}
 		}else{
 			this.actualUrl = this.baseUrl;
-			fileManagerDispatch.dispatchChangeDir.emit(this.actualUrl);
+			this.onChangeDir.emit(this.actualUrl);
+			folderTypeStore.changeDir(this.actualUrl);
+			fileTypeStore.changeDir(this.actualUrl);
 		};
 		
 	}

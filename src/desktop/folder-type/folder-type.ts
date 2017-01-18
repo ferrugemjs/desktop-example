@@ -1,6 +1,6 @@
 import {IFolderType} from "./folder-type-interface";
 import folderTypeStore from "../folder-type/folder-type-store";
-import fileManagerDispatch from "../file-manager/file-manager-dispatch";
+import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 
 export class FolderType implements IFolderType{
 	public name:string;
@@ -10,6 +10,6 @@ export class FolderType implements IFolderType{
 		this.name = "";
 	}
 	private toFolder(){
-		fileManagerDispatch.dispatchChangeDir.emit(this.path);
+		folderTypeStore.changeDir(this.path);
 	}
 }

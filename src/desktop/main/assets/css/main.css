@@ -52,11 +52,6 @@ body > div{
 	width: 98%;
   	margin-left:1%;
 }
-.main-app .aplication-area > compose-view{
-	width: 100%;
-	height: 100%;
-	
-}
 .main-app .main-apps-bar{
 	position: absolute;
 	bottom:4px;

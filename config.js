@@ -8,13 +8,13 @@ System.config({
   },
 
   map: {
-    "css": "github:systemjs/plugin-css@0.1.23",
     "es6-shim": "npm:es6-shim@0.35.1",
     "event-emitter-lite": "npm:event-emitter-lite@1.0.5",
-    "ferrugemjs": "npm:ferrugemjs@0.9.18",
-    "incremental-dom": "npm:incremental-dom@0.4.1",
+    "ferrugemjs": "npm:ferrugemjs@0.9.20",
     "promised-xhr": "npm:promised-xhr@1.2.0",
     "ts-helpers": "npm:ts-helpers@1.1.1",
+    "incremental-dom": "npm:incremental-dom@0.5.1",
+    "css": "github:systemjs/plugin-css@0.1.32",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -25,7 +25,7 @@ System.config({
       "os-browserify": "npm:os-browserify@0.1.2"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.7"
+      "process": "npm:process@0.11.9"
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
@@ -43,16 +43,19 @@ System.config({
       "base64-js": "npm:base64-js@0.0.8",
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "ieee754": "npm:ieee754@1.1.6",
+      "ieee754": "npm:ieee754@1.1.8",
       "isarray": "npm:isarray@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:es6-shim@0.35.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:ferrugemjs@0.9.18": {
+    "npm:ferrugemjs@0.9.20": {
       "css": "github:systemjs/plugin-css@0.1.32",
-      "incremental-dom": "npm:incremental-dom@0.4.1"
+      "incremental-dom": "npm:incremental-dom@0.5.1"
+    },
+    "npm:incremental-dom@0.5.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
@@ -60,7 +63,7 @@ System.config({
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
-    "npm:process@0.11.7": {
+    "npm:process@0.11.9": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"

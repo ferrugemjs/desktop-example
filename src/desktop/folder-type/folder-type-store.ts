@@ -1,10 +1,8 @@
 import {EventEmitter} from "event-emitter-lite";
 import {IFolderType} from "./folder-type-interface";
 import $xhr = require('promised-xhr');
-import fileManagerDispatch from "../file-manager/file-manager-dispatch";
 import statusBarDispatch from "../status-bar/status-bar-dispatch";
 import {EStatusRequest} from "../status-bar/status-request-enum";
-
 
 class FolderTypeStore{
 	public onChange:EventEmitter<any> = new EventEmitter();
@@ -14,11 +12,8 @@ class FolderTypeStore{
 	constructor(){
 		this.foldertype = [];
 		this.changeDir("example");
-		fileManagerDispatch.dispatchChangeDir.subscribe((new_dir:string)=>{
-			this.changeDir(new_dir);
-		});
 	}
-	private changeDir(path:string):void{
+	public changeDir(path:string):void{
 		statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.SEND);
 		$xhr.get("rest/folder?directory="+path).then((res:any) =>{
 			this.foldertype = res.body;
@@ -29,9 +24,6 @@ class FolderTypeStore{
 	public get():IFolderType[]{
 		return this.foldertype;
 	}
-
-	
-
 }
 
 export default new FolderTypeStore();
