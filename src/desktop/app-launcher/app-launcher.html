@@ -1,3 +1,19 @@
 <template>
-	
+	<style>
+		.app-launcher{
+			width:100%;
+			height:100%;
+		}
+	</style>
+	<require from="../file-manager/file-manager"></require>
+	<for each="app in this.apps">
+		<if condition="app.path.indexOf('system-config')>-1">
+			<compose
+			view="${app.path}" 
+			title="ops my friend"
+			></compose>
+		<else>
+			<compose view="${app.path}" title="ops my friend"></compose>
+		</if>									
+	</for>
 </template>

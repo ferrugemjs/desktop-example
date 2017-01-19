@@ -1,9 +1,9 @@
 import {EventEmitter} from "event-emitter-lite";
 import {IAppItem} from "../app/i-app";
+import appLauncherDispatch from "../app-launcher/app-launcher-dispatch";
 
 export class AppsBar{
 	public onHiddenApps:EventEmitter<boolean>=new EventEmitter();
-	public onDispatchTask:EventEmitter<IAppItem>=new EventEmitter();
 	private appsBarItens:IAppItem[];
 	constructor(){
 		this.appsBarItens = [
@@ -15,6 +15,6 @@ export class AppsBar{
 		this.onHiddenApps.emit(true);
 	}
 	private dispatchTask(appItem:IAppItem):void{
-		this.onDispatchTask.emit(appItem);
+		appLauncherDispatch.onDispatchTask.emit(appItem);
 	}
 }

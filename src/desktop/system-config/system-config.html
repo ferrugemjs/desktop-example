@@ -3,9 +3,9 @@
 		.system-config{
 			bottom: 5px;
 			right:5px;
-			width:300px !important;
-			height:200px !important;
 			position: absolute;
+		}
+		.system-config > .contents{
 		}
 		.system-config > .contents .preview-bg{
 			width:100%;
@@ -13,25 +13,23 @@
 			border:1px solid green;
 		}
 	</style>
-	<!--<if condition="this.isOpen">-->			
-	<div class="titlebar">
-		<span class="titleLabel">configuracao</span>
-	    <span class="titleButton pull-right close" click.trigger="this.refresh"></span>
-  	</div>
-	<div class="contents">
-		<form style="padding:1%;width:98%" onsubmit="return false">
-			<div class="preview-bg" style="${'background-image:url(dist/desktop/main/assets/img/'+(this.backImg)+')'}">						
-			</div>
-			<label style="margin-bottom:5px">background:</label>
-			<select value.bind="this.backImg" style="width:90%">
-				<option value="dotted_bg-min.png">default</option>
-				<option value="gray-background-image-min.jpg">gray-min-image</option>
-				<option value="gray-background-image.jpg">gray-image</option>
-				<option value="green-background-image.jpg">green-image</option>
-				<option value="ttpat-min.jpg">ttpat-background</option>
-			</select>				
-			<button click.trigger="this.submitBackgroundImage" style="width:10%">ok</button>
-		</form>
-	</div>
-	<!--</if>-->
+	<if condition="this.visible">
+		<div class="titlebar">
+			<span class="titleLabel">configuracao</span>
+		    <span class="titleButton pull-right close" click.trigger="this.close"></span>
+	  	</div>
+		<div class="contents">
+			<form style="padding:1%;width:98%" onsubmit="return false">
+				<div class="preview-bg" style="${'background-image:url('+(this.imgs[this.indxImg].path)+')'}">						
+				</div>
+				<label style="margin-bottom:5px">background:</label>
+				<select value.bind="this.indxImg" style="width:90%">
+					<for each="imgItem,$indx in this.imgs">
+						<option value="${$indx}">${imgItem.desc}</option>
+					</for>
+				</select>				
+				<button click.trigger="this.submitBackgroundImage" style="width:10%">ok</button>
+			</form>
+		</div>
+	</if>
 </template>

@@ -3,28 +3,18 @@
 	<require from="../widget/assets/css/window-widget.css!"></require>	
 	<require from="../apps-bar/apps-bar"></require>
 	<require from="../status-bar/status-bar"></require>	
-	<require from="../file-manager/file-manager"></require>
-	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url(dist/desktop/main/assets/img/'+(this.selectedBackgroundImage)+')'}">
+	<require from="../app-launcher/app-launcher"></require>
+	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url('+(this.selectedBackgroundImage)+')'}">
 	
 		<status-bar></status-bar>
-		<div class="aplication-area">			
-			<if condition="this.appsVisible">				
-				<for each="app in this.apps">
-					<if condition="app.path.indexOf('system-config')>-1">
-						<compose
-						view="${app.path}" 
-						title="ops my friend"
-						on-change-background.subscribe="this.changeBackgroundImage"
-						></compose>
-					<else>
-						<compose view="${app.path}" title="ops my friend"></compose>
-					</if>									
-				</for>									
-			</if>
+		<div class="aplication-area">
+			<app-launcher></app-launcher>
 		</div>	
 		<div class="main-apps-bar">
-			<apps-bar on-hidden-apps.subscribe="this.hiddenApps" on-dispatch-task.subscribe="this.loadApp"></apps-bar>
-		</div>	
-		
+			<apps-bar></apps-bar>
+		</div>
 	</div>
+	<!--
+	on-hidden-apps.subscribe="this.hiddenApps"
+	-->
 </template>

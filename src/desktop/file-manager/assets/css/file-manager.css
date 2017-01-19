@@ -1,13 +1,13 @@
-.file-manager > .file-manager-app{
+.file-manager{
   height: 100%;
   width: 100%;
 }
-.file-manager .file-manager-app div.titlebar span.titleButton.search{
+.file-manager div.titlebar span.titleButton.search{
   background-image:url(../img/zoom-fit.png);
 
 }
 
-.file-manager .file-manager-app .search-file{
+.file-manager .search-file{
 	border:1px solid transparent;
 	margin:4px 0px 8px 10px;
 	background-position: center right;
