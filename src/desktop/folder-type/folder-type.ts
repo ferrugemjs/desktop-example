@@ -1,5 +1,6 @@
 import {IFolderType} from "./folder-type-interface";
 import folderTypeStore from "../folder-type/folder-type-store";
+import fileTypeStore from "../file-type/file-type-store";
 import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 
 export class FolderType implements IFolderType{
@@ -11,5 +12,6 @@ export class FolderType implements IFolderType{
 	}
 	private toFolder(){
 		folderTypeStore.changeDir(this.path);
+		fileTypeStore.changeDir(this.path);
 	}
 }

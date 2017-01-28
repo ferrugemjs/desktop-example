@@ -3,6 +3,8 @@ import {IFolderType} from "../folder-type/folder-type-interface";
 import fileTypeStore from "../file-type/file-type-store";
 import folderTypeStore from "../folder-type/folder-type-store";
 import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
+import {EStatusRequest} from "../status-bar/status-request-enum";
+import statusBarDispatch from "../status-bar/status-bar-dispatch";
 
 export class FileManager{
 	private baseUrl:string;
@@ -35,6 +37,7 @@ export class FileManager{
 			(<any>this).refresh();
 		});
 		folderTypeStore.onChange.subscribe(() => {
+			statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.RECEIVED);
 			(<any>this).refresh();
 		});		
 	}
@@ -54,7 +57,7 @@ export class FileManager{
 		return folderTypeStore.get();
 	}
 	private setDirectory(directoryindex:number):void{
-		console.log(directoryindex);
+		statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.SEND);
 		if(directoryindex > 0){
 			let fileDirectory:string = "";
 			let fileArray:string[] = this.actualUrl.split("/");

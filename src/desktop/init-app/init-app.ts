@@ -4,7 +4,7 @@ $xhr.base = "";
 export class Main{
 	private selectedBackgroundImage:string;
 	constructor(){
-		this.selectedBackgroundImage = "dist/desktop/main/assets/img/dotted_bg-min.png";
+		this.selectedBackgroundImage = "dist/desktop/init-app/assets/img/dotted_bg-min.png";
 	}
 	private changeBackgroundImage(bckimg:string):void{
 		this.selectedBackgroundImage = bckimg;

@@ -12,7 +12,7 @@ export class SystemConfig{
 	private imgs:IImgResource[];
 	constructor(){
 		this.visible = true;
-		let baseUrl:string = "dist/desktop/main/assets/img/";
+		let baseUrl:string = "dist/desktop/init-app/assets/img/";
 		this.imgs = [
 			{desc:"default",path:baseUrl+"dotted_bg-min.png"}
 			,{desc:"gray-min-image",path:baseUrl+"gray-background-image-min.jpg"}
