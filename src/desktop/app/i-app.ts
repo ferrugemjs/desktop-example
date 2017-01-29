@@ -5,4 +5,5 @@ export interface IAppItem{
 	icon:string;
 	path:string;
 	detached?:()=>void;
+	visible?:boolean;
 }

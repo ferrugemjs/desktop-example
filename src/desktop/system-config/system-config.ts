@@ -1,5 +1,7 @@
 import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 
+import dispatchBus from "../global/dispatch-bus";
+
 interface IImgResource{
 	desc:string;
 	path:string;
@@ -10,6 +12,7 @@ export class SystemConfig{
 	private onChangeBackground:EventEmitter<string>=new EventEmitter();
 	private indxImg:number;
 	private imgs:IImgResource[];
+	private refresh:Function;
 	constructor(){
 		this.visible = true;
 		let baseUrl:string = "dist/desktop/init-app/assets/img/";
@@ -23,8 +26,12 @@ export class SystemConfig{
 		this.indxImg = 0;
 	}
 	private submitBackgroundImage():void{
-		this.visible = false;
 		this.onChangeBackground.emit(this.imgs[this.indxImg].path);
+		dispatchBus.dispatch.emit({
+			action:'change:background-img'
+			,data:this.imgs[this.indxImg].path
+		});
+		this.close();
 	}
 	private close():void{
 		this.visible=false;

@@ -9,20 +9,25 @@ import statusBarDispatch from "../status-bar/status-bar-dispatch";
 export class FileManager{
 	private baseUrl:string;
 	private actualUrl:string;
-	private isOpen:boolean;
+	private visible:boolean;
 	private fileSearch:string;
 	private inSearch:boolean;
 	public onChangeDir:EventEmitter<string> = new EventEmitter();
+	private refresh:Function;
+	private inscFileStore:IEventSubscribe;
+	private inscFolderStore:IEventSubscribe;
 	constructor(){
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
-		this.isOpen = true;
+		this.visible = true;
 		this.fileSearch = "";
 		this.inSearch=false;
 	}
 	private close():void{
-		this.isOpen=false;
+		this.visible=false;
+		fileTypeStore.onChange.unsubscribe(this.inscFileStore);
+		folderTypeStore.onChange.unsubscribe(this.inscFolderStore);
 		this.refresh();
 	}
 	private showSearch():void{
@@ -33,10 +38,11 @@ export class FileManager{
 		console.log('removido!!!');
 	}
 	private attached():void{		
-		fileTypeStore.onChange.subscribe(() => {
+		console.log('agora e a hora!!!')
+		this.inscFileStore  = fileTypeStore.onChange.subscribe(() => {
 			(<any>this).refresh();
 		});
-		folderTypeStore.onChange.subscribe(() => {
+		this.inscFolderStore  = folderTypeStore.onChange.subscribe(() => {
 			statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.RECEIVED);
 			(<any>this).refresh();
 		});		

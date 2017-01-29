@@ -23,7 +23,7 @@
 				<div class="preview-bg" style="${'background-image:url('+(this.imgs[this.indxImg].path)+')'}">						
 				</div>
 				<label style="margin-bottom:5px">background:</label>
-				<select value.bind="this.indxImg" style="width:90%">
+				<select change.bind="this.indxImg" style="width:90%">
 					<for each="imgItem,$indx in this.imgs">
 						<option value="${$indx}">${imgItem.desc}</option>
 					</for>
