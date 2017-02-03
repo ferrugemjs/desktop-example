@@ -13,9 +13,11 @@ export class FileManager{
 	private fileSearch:string;
 	private inSearch:boolean;
 	public onChangeDir:EventEmitter<string> = new EventEmitter();
+	public onClose:EventEmitter<number> = new EventEmitter();
 	private refresh:Function;
 	private inscFileStore:IEventSubscribe;
 	private inscFolderStore:IEventSubscribe;
+	private pid:number;
 	constructor(){
 		this.baseUrl = "example";
 		//this.baseUrl = "..";
@@ -28,6 +30,7 @@ export class FileManager{
 		this.visible=false;
 		fileTypeStore.onChange.unsubscribe(this.inscFileStore);
 		folderTypeStore.onChange.unsubscribe(this.inscFolderStore);
+		this.onClose.emit(this.pid);
 		this.refresh();
 	}
 	private showSearch():void{
@@ -36,6 +39,10 @@ export class FileManager{
 	}
 	private detached():void{
 		console.log('removido!!!');
+		fileTypeStore.onChange.unsubscribe(this.inscFileStore);
+		folderTypeStore.onChange.unsubscribe(this.inscFolderStore);
+		this.onChangeDir.unsubscribeAll();
+		this.onClose.unsubscribeAll();
 	}
 	private attached():void{		
 		console.log('agora e a hora!!!')

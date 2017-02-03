@@ -7,14 +7,13 @@
 	</style>
 	<require from="../file-manager/file-manager"></require>
 	<for each="app in this.apps">
-		<if condition="app.path.indexOf('system-config')>-1">
-			<compose
+		<compose
 			view="${app.path}" 
 			title="ops my friend"
 			visible="${app.visible}"
-			></compose>
-		<else>
-			<compose view="${app.path}" title="ops my friend"></compose>
-		</if>									
+			pid="${app.pid}"
+			key:id="${app.pid}"
+			on-close.subscribe="this.hiddenApp"
+			></compose>									
 	</for>
 </template>

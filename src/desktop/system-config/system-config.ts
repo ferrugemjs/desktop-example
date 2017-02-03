@@ -9,10 +9,12 @@ interface IImgResource{
 
 export class SystemConfig{
 	private visible:boolean;
-	private onChangeBackground:EventEmitter<string>=new EventEmitter();
+	public onChangeBackground:EventEmitter<string>=new EventEmitter();
+	public onClose:EventEmitter<number> = new EventEmitter();
 	private indxImg:number;
 	private imgs:IImgResource[];
 	private refresh:Function;
+	private pid:number;
 	constructor(){
 		this.visible = true;
 		let baseUrl:string = "dist/desktop/init-app/assets/img/";
@@ -35,6 +37,12 @@ export class SystemConfig{
 	}
 	private close():void{
 		this.visible=false;
+		this.onClose.emit(this.pid);
 		this.refresh();
+	}
+
+	private detached():void{
+		this.onClose.unsubscribeAll();
+		this.onChangeBackground.unsubscribeAll();
 	}
 }

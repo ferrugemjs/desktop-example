@@ -1,5 +1,5 @@
 export interface IAppItem{
-	id:number;
+	pid:number;
 	task:string;
 	description:string;
 	icon:string;
