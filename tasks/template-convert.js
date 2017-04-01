@@ -10,7 +10,7 @@ gulp.task('template',function(){
     return gulp.src([
         "./src/**/*.html"
     ])
-    .pipe(ferrugemjs({mode:"amd"}))
+    .pipe(ferrugemjs({formatCode:true}))
     .pipe(rename({
         extname: ".html.js"
     }))

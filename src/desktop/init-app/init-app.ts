@@ -7,7 +7,10 @@ export class Main{
 	private refresh:Function;
 	constructor(){
 		this.selectedBackgroundImage = "dist/desktop/init-app/assets/img/dotted_bg-min.png";
+	}
+	private attached(){
 		dispatchBus.dispatch.subscribe(evt=>{
+			console.log(evt);
 			if(evt.action==="change:background-img"){
 				this.changeBackgroundImage(evt.data);
 			}

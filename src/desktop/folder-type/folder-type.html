@@ -1,6 +1,8 @@
-<template class="folder-type file-manager-item">
-	<require from="./assets/css/folder-type.css!"></require>
-	<div data-path="${this.path}" class="item folder" click.trigger="this.toFolder">
-      <div class="itemName">${this.name}</div>
-    </div>
+<template>
+	<require from="./assets/css/folder-type.css!"/>
+	<div class="folder-type file-manager-item">
+		<div data-path="${this.path}" class="item folder" click.trigger="this.toFolder">
+	      <div class="itemName">${this.name}</div>
+	    </div>		
+	</div>
 </template>

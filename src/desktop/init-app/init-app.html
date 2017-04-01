@@ -1,20 +1,23 @@
 <template class="init-app">
-	<require from="./assets/css/main.css!"></require>
-	<require from="../widget/assets/css/window-widget.css!"></require>	
-	<require from="../apps-bar/apps-bar"></require>
-	<require from="../status-bar/status-bar"></require>	
-	<require from="../app-launcher/app-launcher"></require>
-	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url('+(this.selectedBackgroundImage)+')'}">
-	
-		<status-bar></status-bar>
-		<div class="aplication-area">
-			<app-launcher key:id="app_launcher"></app-launcher>
-		</div>	
+	<require from="./assets/css/main.css!"/>
+	<require from="../widget/assets/css/window-widget.css!"/>	
+	<require from="../status-bar/status-bar"/>
+	<require from="../apps-bar/apps-bar"/>
+	<require from="ferrugemjs-router as rt" type="namespace"/>
+	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url('+(this.selectedBackgroundImage)+')'}">	
+		<status-bar/>
+		<rt:router-view style-name="aplication-area" hashbang="true">
+			<route path="/file-manager/:baseUrl" view-model="apps/file-manager/file-manager"/>
+		</rt:router-view>
+		<rt:router-view style-name="sub-aplication-area" hashbang="true">
+			<route path="/system-config" view-model="apps/system-config/system-config"/>
+		</rt:router-view>
 		<div class="main-apps-bar">
-			<apps-bar></apps-bar>
+			<apps-bar/>
 		</div>
+		<!--
+		<rt:router-redirect path="/file-manager/example" timeout="2000">
+		-->
+		<rt:router-redirect path="/system-config" timeout="2000">
 	</div>
-	<!--
-	on-hidden-apps.subscribe="this.hiddenApps"
-	-->
 </template>

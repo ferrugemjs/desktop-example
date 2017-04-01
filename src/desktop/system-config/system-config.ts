@@ -8,7 +8,7 @@ interface IImgResource{
 }
 
 export class SystemConfig{
-	private visible:boolean;
+	private hidden:boolean;
 	public onChangeBackground:EventEmitter<string>=new EventEmitter();
 	public onClose:EventEmitter<number> = new EventEmitter();
 	private indxImg:number;
@@ -16,7 +16,6 @@ export class SystemConfig{
 	private refresh:Function;
 	private pid:number;
 	constructor(){
-		this.visible = true;
 		let baseUrl:string = "dist/desktop/init-app/assets/img/";
 		this.imgs = [
 			{desc:"default",path:baseUrl+"dotted_bg-min.png"}
@@ -28,15 +27,16 @@ export class SystemConfig{
 		this.indxImg = 0;
 	}
 	private submitBackgroundImage():void{
-		this.onChangeBackground.emit(this.imgs[this.indxImg].path);
+		//console.log(this.imgs[this.indxImg].path);
 		dispatchBus.dispatch.emit({
 			action:'change:background-img'
 			,data:this.imgs[this.indxImg].path
 		});
+		this.onChangeBackground.emit(this.imgs[this.indxImg].path);
 		this.close();
 	}
 	private close():void{
-		this.visible=false;
+		this.hidden=true;
 		this.onClose.emit(this.pid);
 		this.refresh();
 	}

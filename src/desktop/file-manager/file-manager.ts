@@ -9,50 +9,52 @@ import statusBarDispatch from "../status-bar/status-bar-dispatch";
 export class FileManager{
 	private baseUrl:string;
 	private actualUrl:string;
-	private visible:boolean;
 	private fileSearch:string;
 	private inSearch:boolean;
 	public onChangeDir:EventEmitter<string> = new EventEmitter();
 	public onClose:EventEmitter<number> = new EventEmitter();
 	private refresh:Function;
-	private inscFileStore:IEventSubscribe;
-	private inscFolderStore:IEventSubscribe;
+	private inscs:IEventSubscribe[];
 	private pid:number;
+	private hidden:boolean;
 	constructor(){
 		this.baseUrl = "example";
-		//this.baseUrl = "..";
 		this.actualUrl = this.baseUrl;
-		this.visible = true;
 		this.fileSearch = "";
 		this.inSearch=false;
-	}
-	private close():void{
-		this.visible=false;
-		fileTypeStore.onChange.unsubscribe(this.inscFileStore);
-		folderTypeStore.onChange.unsubscribe(this.inscFolderStore);
-		this.onClose.emit(this.pid);
-		this.refresh();
+		this.inscs = [];
 	}
 	private showSearch():void{
 		this.inSearch=!this.inSearch;
 		this.refresh();
 	}
-	private detached():void{
-		console.log('removido!!!');
-		fileTypeStore.onChange.unsubscribe(this.inscFileStore);
-		folderTypeStore.onChange.unsubscribe(this.inscFolderStore);
-		this.onChangeDir.unsubscribeAll();
+	private disconect(){
+		this.onClose.emit(this.pid);
+		this.inscs.forEach(insc=>insc.cancel());
 		this.onClose.unsubscribeAll();
+		this.onChangeDir.unsubscribeAll();
+		this.inscs = [];
+	}
+	private close(){
+		this.disconect();
+		this.hidden = true;
+		this.refresh();		
+	}
+	private detached():void{
+		this.disconect();
 	}
 	private attached():void{		
-		console.log('agora e a hora!!!')
-		this.inscFileStore  = fileTypeStore.onChange.subscribe(() => {
-			(<any>this).refresh();
-		});
-		this.inscFolderStore  = folderTypeStore.onChange.subscribe(() => {
-			statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.RECEIVED);
-			(<any>this).refresh();
-		});		
+		this.inscs.push(
+			fileTypeStore.onChange.subscribe(() => {
+				this.refresh();
+			})
+		);
+		this.inscs.push(
+			folderTypeStore.onChange.subscribe(() => {
+				statusBarDispatch.dispatchRequestStatus.emit(EStatusRequest.RECEIVED);
+				this.refresh();
+			})
+		);
 	}
 	private get files():IFileType[]{
 		if(this.fileSearch){

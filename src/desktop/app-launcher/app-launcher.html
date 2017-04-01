@@ -1,19 +1,21 @@
 <template>
+	<require from="../file-manager/file-manager"/>
 	<style>
 		.app-launcher{
 			width:100%;
 			height:100%;
 		}
 	</style>
-	<require from="../file-manager/file-manager"></require>
-	<for each="app in this.apps">
-		<compose
-			view="${app.path}" 
-			title="ops my friend"
-			visible="${app.visible}"
-			pid="${app.pid}"
-			key:id="${app.pid}"
-			on-close.subscribe="this.hiddenApp"
-			></compose>									
-	</for>
+	<div class="app-launcher">
+		<for each="app in this.apps">
+			<compose
+				view="${app.path}" 
+				title="ops my friend"
+				visible="${app.visible}"
+				pid="${app.pid}"
+				key:id="${app.pid}"
+				on-close.subscribe="this.hiddenApp"
+				/>									
+		</for>		
+	</div>
 </template>

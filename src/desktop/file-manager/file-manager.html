@@ -1,33 +1,32 @@
-<template class="file-manager">
-	<require from="./assets/css/file-manager.css!"></require>
-	<require from="../file-type/file-type"></require>
-	<require from="../folder-type/folder-type"></require>	
-	<if condition="this.visible">
-		<div class="window-widget file-manager-app">
-			<div class="titlebar" data-url="${this.actualUrl}">
-				<for each="path,$indx in this.actualUrl.split('/')">
-					<span data-href="${$indx}" click.trigger="this.setDirectory" class="${'titleLabel'}">		${($indx >0?' - ':'')+path}
-					</span>
-				</for>
-			    <span class="titleButton pull-right close" click.trigger="this.close"></span>
-			    <span click.trigger="this.showSearch" class="${'titleButton pull-right search '+(this.inSearch?'is-pressed':'')}"></span>
-		  	</div>
-			<div class="contents">
-				<if condition="this.inSearch">
-					<div class="full">
-						<input class="search-file" placeholder="...search here!" keyup.bind="this.fileSearch" type="text"/>
-					</div>					
-				</if>
-				<for each="folder in this.folders">
-					<folder-type path="${folder.path}" name="${folder.name}"></folder-type>			
-				</for>
-				<for each="file in this.files">
-					<file-type path="${file.path}" name="${file.name}" extension="${file.extension}"></file-type>
-				</for>
-				
-			</div>	
-
-		</div>	
-
-	</if>
+<template>
+	<require from="./assets/css/file-manager.css!"/>
+	<require from="../file-type/file-type"/>
+	<require from="../folder-type/folder-type"/>
+	<div>
+		<div if="!this.hidden" class="file-manager">
+			<div class="window-widget file-manager-app">
+				<div class="titlebar" data-url="${this.actualUrl}">
+					<for each="path,$indx in this.actualUrl.split('/')">
+						<span data-href="${$indx}" click.trigger="this.setDirectory" class="${'titleLabel'}">		${($indx >0?' - ':'')+path}
+						</span>
+					</for>
+				    <span class="titleButton pull-right close" click.trigger="this.close"></span>
+				    <span click.trigger="this.showSearch" class="${'titleButton pull-right search '+(this.inSearch?'is-pressed':'')}"></span>
+			  	</div>
+				<div class="contents">
+					<if condition="this.inSearch">
+						<div class="full">
+							<input class="search-file" placeholder="...search here!" keyup.bind="this.fileSearch" type="text"/>
+						</div>					
+					</if>
+					<for each="folder in this.folders">
+						<folder-type path="${folder.path}" name="${folder.name}"></folder-type>			
+					</for>
+					<for each="file in this.files">
+						<file-type path="${file.path}" name="${file.name}" extension="${file.extension}"></file-type>
+					</for>
+				</div>	
+			</div>
+		</div>
+	</div>
 </template>
