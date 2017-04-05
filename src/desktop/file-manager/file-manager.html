@@ -16,7 +16,7 @@
 				<div class="contents">
 					<if condition="this.inSearch">
 						<div class="full">
-							<input class="search-file" placeholder="...search here!" keyup.bind="this.fileSearch" type="text"/>
+							<input class="search-file" placeholder="...search here!" keyup.trigger="this.setTerm" type="text"/>
 						</div>					
 					</if>
 					<for each="folder in this.folders">

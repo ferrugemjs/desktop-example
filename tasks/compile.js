@@ -10,6 +10,7 @@ function compile_ts(path){
     return gulp.src([
             path
             ,"./jspm_packages/npm/event-emitter-lite@*/*.d.ts"
+            ,"./jspm_packages/npm/rxjs@*/Rx.d.ts"
         ])
         .pipe(ts(tsConfig))
         //.pipe(uglify())

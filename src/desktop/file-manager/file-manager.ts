@@ -5,6 +5,10 @@ import folderTypeStore from "../folder-type/folder-type-store";
 import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 import {EStatusRequest} from "../status-bar/status-request-enum";
 import statusBarDispatch from "../status-bar/status-bar-dispatch";
+import Rx = require("rxjs/Rx");
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounce';
+import 'rxjs/add/observable/timer';
 
 export class FileManager{
 	private baseUrl:string;
@@ -17,6 +21,7 @@ export class FileManager{
 	private inscs:IEventSubscribe[];
 	private pid:number;
 	private hidden:boolean;
+	private obserSearchFile:Observable;
 	constructor(){
 		this.baseUrl = "example";
 		this.actualUrl = this.baseUrl;
@@ -34,6 +39,7 @@ export class FileManager{
 		this.onClose.unsubscribeAll();
 		this.onChangeDir.unsubscribeAll();
 		this.inscs = [];
+		this.obserSearchFile.complete();
 	}
 	private close(){
 		this.disconect();
@@ -55,19 +61,37 @@ export class FileManager{
 				this.refresh();
 			})
 		);
+
+		if(!this.obserSearchFile){
+			Rx.Observable.create(observ => {
+				this.obserSearchFile = observ 
+			})
+			.debounce(() => Rx.Observable.timer(1000))
+			.distinctUntilChanged()
+			.subscribe((term:string) => {
+				//console.log('aways subscribe %s',x);
+				this.fileSearch = term;
+				this.refresh();
+			})
+		}
+	}
+	private setTerm(evt:Event){
+		this.obserSearchFile.next(evt.target.value);
+	}
+	private filterBySearch(file_item:IFolderType):boolean{
+		let fileSearchConverted = this.fileSearch.toLowerCase();
+		return file_item.name.toLowerCase().indexOf(fileSearchConverted) > -1
 	}
 	private get files():IFileType[]{
 		if(this.fileSearch){
-			const filterBySearch = (file_item:IFileType) => file_item.name.indexOf(this.fileSearch) > -1;
-			return fileTypeStore.get().filter(filterBySearch);
+			return fileTypeStore.get().filter(file_item => this.filterBySearch(file_item));
 		}
 		return fileTypeStore.get();		
 	}
 
 	private get folders():IFolderType[]{
 		if(this.fileSearch){
-			const filterBySearch = (folder_item:IFolderType) => folder_item.name.indexOf(this.fileSearch) > -1;
-			return folderTypeStore.get().filter(filterBySearch);	
+			return folderTypeStore.get().filter(folder_item => this.filterBySearch(folder_item));	
 		}
 		return folderTypeStore.get();
 	}

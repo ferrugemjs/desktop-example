@@ -1,10 +1,10 @@
 <template class="init-app">
 	<require from="./assets/css/main.css!"/>
-	<require from="../widget/assets/css/window-widget.css!"/>	
+	<require from="../widget/assets/css/window-widget.css!"/>		
 	<require from="../status-bar/status-bar"/>
 	<require from="../apps-bar/apps-bar"/>
 	<require from="ferrugemjs-router as rt" type="namespace"/>
-	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url('+(this.selectedBackgroundImage)+')'}">	
+	<div data-background="${this.selectedBackgroundImage}" class="main-app" style="${'background-image:url('+(this.selectedBackgroundImage)+')'}">
 		<status-bar/>
 		<rt:router-view style-name="aplication-area" hashbang="true">
 			<route path="/file-manager/:baseUrl" view-model="apps/file-manager/file-manager"/>
@@ -15,9 +15,6 @@
 		<div class="main-apps-bar">
 			<apps-bar/>
 		</div>
-		<!--
-		<rt:router-redirect path="/file-manager/example" timeout="2000">
-		-->
-		<rt:router-redirect path="/system-config" timeout="2000">
+		<rt:router-redirect path="/file-manager/example" timeout="1000">
 	</div>
 </template>

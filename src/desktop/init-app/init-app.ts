@@ -10,7 +10,7 @@ export class Main{
 	}
 	private attached(){
 		dispatchBus.dispatch.subscribe(evt=>{
-			console.log(evt);
+			//console.log(evt);
 			if(evt.action==="change:background-img"){
 				this.changeBackgroundImage(evt.data);
 			}

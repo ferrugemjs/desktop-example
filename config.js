@@ -15,6 +15,7 @@ System.config({
     "ferrugemjs-router": "npm:ferrugemjs-router@0.0.11",
     "incremental-dom": "npm:incremental-dom@0.5.1",
     "promised-xhr": "npm:promised-xhr@1.2.0",
+    "rxjs": "npm:rxjs@5.2.0",
     "tslib": "npm:tslib@1.6.0",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
@@ -74,6 +75,11 @@ System.config({
     },
     "npm:rsvp@3.0.9": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:rxjs@5.2.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "symbol-observable": "npm:symbol-observable@1.0.4"
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",

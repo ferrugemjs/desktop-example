@@ -24,6 +24,7 @@
       "ferrugemjs-router": "npm:ferrugemjs-router@^0.0.11",
       "incremental-dom": "npm:incremental-dom@^0.5.1",
       "promised-xhr": "npm:promised-xhr@^1.2.0",
+      "rxjs": "npm:rxjs@^5.2.0",
       "tslib": "npm:tslib@1.6.0"
     },
     "devDependencies": {}
