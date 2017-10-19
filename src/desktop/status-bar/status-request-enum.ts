@@ -1,4 +1,4 @@
 export enum EStatusRequest{
-	RECEIVED
-	,SEND
+    RECEIVED
+    ,SEND
 }

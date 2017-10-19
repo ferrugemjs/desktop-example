@@ -3,23 +3,27 @@
         "target": "es5"
         ,"module": "amd"
         ,"moduleResolution": "classic"
-        ,"outDir": "./dist"
+        ,"outDir": "./public"
         ,"experimentalDecorators": true
-        ,"noImplicitAny":true       
+        ,"noImplicitAny":true		
         ,"sourceMap": false        
-        ,"declaration": false
-        ,"removeComments":true
-        ,"noEmitHelpers":true 
+		,"declaration": false
+		,"removeComments":true
+		,"noEmitHelpers":true 
         ,"importHelpers":true
-        ,"suppressImplicitAnyIndexErrors": true
+		,"suppressImplicitAnyIndexErrors": true
         ,"baseUrl": "./"
+        ,"lib": ["dom", "es6"]
         ,"paths": {
-            "tslib" : ["jspm_packages/npm/tslib@1.6.0/tslib.d.ts"]
+            "tslib" : ["node_modules/tslib/tslib.d.ts"]
+            ,"event-emitter-lite":["node_modules/event-emitter-lite/dist/amd/event-emitter.d.ts"]
+            ,"moment":["node_modules/moment/moment.d.ts"]
+			,"rxjs/*":["node_modules/rxjs/*"]
         }
     },
     "exclude": [
         "node_modules"
-        ,"dist"
+		,"dist"
     ],
     "compileOnSave": false
 }

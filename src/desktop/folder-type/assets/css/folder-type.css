@@ -6,5 +6,5 @@
 
 
 .file-manager-item.folder-type > div.special{
-  background: transparent url(../img/folder_important.png) top left no-repeat;
+  background: transparent url(../img/folder-recent.png) top left no-repeat;
 }

@@ -4,14 +4,14 @@ import fileTypeStore from "../file-type/file-type-store";
 import {IEventSubscribe,EventEmitter} from "event-emitter-lite";
 
 export class FolderType implements IFolderType{
-	public name:string;
-	public path:string;
-	constructor(){
-		this.path="";
-		this.name = "";
-	}
-	private toFolder(){
-		folderTypeStore.changeDir(this.path);
-		fileTypeStore.changeDir(this.path);
-	}
+    public name:string;
+    public path:string;
+    constructor(){
+        this.path="";
+        this.name = "";
+    }
+    private toFolder(){
+        folderTypeStore.changeDir(this.path);
+        fileTypeStore.changeDir(this.path);
+    }
 }

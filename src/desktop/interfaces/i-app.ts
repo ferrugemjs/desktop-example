@@ -4,6 +4,6 @@ export interface IAppItem{
 	description:string;
 	icon:string;
 	path:string;
-	detached?:()=>void;
+	disconnectedCallback?:()=>void;
 	visible?:boolean;
 }
