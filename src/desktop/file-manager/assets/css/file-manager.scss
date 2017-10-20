@@ -1,0 +1,28 @@
+.file-manager{
+	> .file-manager-app{
+		height: 100%;
+		width: 100%;
+		position:absolute;
+		> div.titlebar{
+			> span.titleButton.search{
+ 				background-image:url('../img/zoom-fit.png');
+			}
+		}
+		> .search-file{
+			border:1px solid transparent;
+			margin:4px 0px 8px 10px;
+			background-position: center right;
+			background-repeat: no-repeat;
+			background-image:url(../img/zoom-fit.png);
+		}
+	}
+	> .window-widget{
+		> .status-bar{
+			width: 100%;
+			height: 20px;
+			background-color:#efefef;
+			position:absolute;
+			bottom:0px;			
+		}
+	}
+}

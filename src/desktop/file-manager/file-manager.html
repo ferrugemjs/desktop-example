@@ -1,5 +1,5 @@
 <template>
-	<require from="./assets/css/file-manager.css"/>
+	<require from="./assets/css/file-manager.scss"/>
 	<require from="../file-type/file-type"/>
 	<require from="../folder-type/folder-type"/>
 	<div>
@@ -25,6 +25,9 @@
 					<for each="file in this.files">
 						<file-type path="${file.path}" name="${file.name}" extension="${file.extension}"></file-type>
 					</for>
+				</div>
+				<div class="status-bar">
+					<span>a test bar!!!</span>
 				</div>	
 			</div>
 		</div>

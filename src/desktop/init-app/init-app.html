@@ -1,6 +1,6 @@
 <template class="init-app">
 	<require from="./assets/css/main.css"/>
-	<require from="../widget/assets/css/window-widget.css"/>		
+	<require from="../widget/assets/css/window-widget.css"/>
 	<require from="../status-bar/status-bar"/>
 	<require from="../apps-bar/apps-bar"/>
 	<require from="ferrugemjs-router as rt" type="namespace"/>
@@ -8,6 +8,7 @@
 		<status-bar/>
 		<rt:router-view style-name="aplication-area" hashbang="true">
 			<route path="/file-manager/:baseUrl" view-model="desktop/file-manager/file-manager"/>
+			<route path="/" redirect="/index.html"/>
 		</rt:router-view>
 		<rt:router-view style-name="sub-aplication-area" hashbang="true">
 			<route path="/system-config" view-model="desktop/system-config/system-config"/>
