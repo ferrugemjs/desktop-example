@@ -15,7 +15,7 @@ export class SystemConfig{
     private refresh:Function;
     private pid:number;
     constructor(){
-        let baseUrl:string = "dist/desktop/init-app/assets/img";
+        let baseUrl:string = "src/desktop/init-app/assets/img";
         this.imgs = [
             {desc:"default",path:`${baseUrl}/dotted_bg-min.png`}
             ,{desc:"gray-min-image",path:`${baseUrl}/gray-background-image-min.jpg`}
