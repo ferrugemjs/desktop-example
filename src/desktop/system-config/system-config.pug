@@ -1,0 +1,27 @@
+template
+  style.
+    .system-config{
+      bottom:54px;
+      right:5px;
+      position: absolute;
+    }
+    .system-config > .contents{
+    }
+    .system-config > .contents .preview-bg{
+      width:100%;
+      height:120px;
+      border:1px solid green;
+    }
+  div
+    .window-widget.system-config(if='!this.hidden')
+      .titlebar
+        span.titleLabel configuracao
+        span.titleButton.pull-right.close(click.trigger='this.close')
+      .contents
+        form(style='padding:1%;width:98%', onsubmit='return false')
+          .preview-bg(style={'background-image':"${'url'+this.imgs[this.indxImg].path}"})
+          label(style='margin-bottom:5px') background:
+          select(change.bind='this.indxImg', style='width:90%')
+            #{'for'}(each='imgItem,$indx in this.imgs')
+              option(value='${$indx}') ${imgItem.desc}
+          button(click.trigger='this.submitBackgroundImage', style='width:10%') ok

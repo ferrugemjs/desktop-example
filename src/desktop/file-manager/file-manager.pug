@@ -1,0 +1,22 @@
+template
+  require(from='./assets/css/file-manager.scss')
+  require(from='../file-type/file-type')
+  require(from='../folder-type/folder-type')
+  div
+    .file-manager(if='!this.hidden')
+      .window-widget.file-manager-app
+        .titlebar(data-url='${this.actualUrl}')
+          #{'for'}(each="path,$indx in this.actualUrl.split('/')")
+            span(data-href='${$indx}', click.trigger='this.setDirectory', class="${'titleLabel'}") ${($indx > 0?' - ':'') + path}
+          span.titleButton.pull-right.close(click.trigger='this.close')
+          span.pull-right.search(click.trigger='this.showSearch', class="${'titleButton '+(this.inSearch?'is-pressed':'')}")
+        .contents
+          #{'if'}(condition='this.inSearch')
+            .full
+              input.search-file(placeholder='...search here!', keyup.trigger='this.setTerm', type='text')
+          #{'for'}(each='folder in this.folders')
+            folder-type(path='${folder.path}', name='${folder.name}')
+          #{'for'}(each='file in this.files')
+            file-type(path='${file.path}', name='${file.name}', extension='${file.extension}')
+        .status-bar
+          span a test bar!!!

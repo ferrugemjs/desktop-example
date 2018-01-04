@@ -1,7 +1,9 @@
 var path = require('path');
 
 module.exports = {
-    entry: './src/desktop/app/app.ts',
+    entry: {
+        'app':['es6-shim','whatwg-fetch','./src/desktop/app/app.ts']
+    },
     output: {
         path: path.resolve(__dirname, './public'), 
         filename: 'bundle.js'
@@ -28,7 +30,18 @@ module.exports = {
 				test: /\.ts$/,
 				loader: 'ts-loader'
 			}
-			,{ test: /\.html$/,loader:'ferrugemjs-loader'}
+            ,{
+                test: /\.pug$/,
+                loaders: [
+                            { 
+                                loader:'ferrugemjs-loader'
+                                ,options:{
+                                    templateExtension:".pug"
+                                }
+                            }
+                            ,'pug-html-loader'
+                        ]
+            }            
 			,{
                 test: /\.css$/,
                 use: [ 'style-loader', 'css-loader' ]
@@ -44,16 +57,13 @@ module.exports = {
 		]
     }
 	,resolve: {
-		extensions: [".ts",".html",".js"]
+		extensions: [".ts",".pug",".js",".html"]
 		,alias:{    		
 			"app":path.resolve(__dirname, './src')
 			,"ui":path.resolve(__dirname, './src/ui')
 			,"root_app":path.resolve(__dirname, './src')
 			,"ferrugemjs":"ferrugemjs/dist/core"
 			,"ferrugemjs-router":"ferrugemjs-router/dist/router"
-			,"bootstrap":"bootstrap/dist"
-			,"bootstrap-datepicker":"bootstrap-datepicker/dist"
-			,"selectize":"selectize/dist"
 		}    
 	}
 }

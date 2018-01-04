@@ -1,0 +1,5 @@
+template
+    require(from='./assets/css/file-type.css')
+    .file-type.file-manager-item
+      .file(class="${'item '+this.extension}")
+        .itemName ${this.name.substring(0,this.name.lastIndexOf('.'))}

@@ -1,0 +1,9 @@
+template
+    require(from='./assets/css/apps-bar.css')
+    .apps-bar
+      div(style='width:33%')
+        a.app-item.app-exprorer(href='/file-manager/example')
+      div(style='margin-left:14.5%')
+        .app-item.app-show(click.trigger='this.hiddenApps')
+      .pull-right
+        a.app-item.app-config(href='/system-config')

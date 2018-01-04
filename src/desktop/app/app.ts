@@ -1,4 +1,3 @@
-import "whatwg-fetch";
 declare let require: any;
 window["jQuery"] = window["$"] = require("jquery");
 
