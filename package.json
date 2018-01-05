@@ -35,7 +35,7 @@
   "dependencies": {
     "es6-shim": "^0.35.3",
     "event-emitter-lite": "^1.2.0",
-    "ferrugemjs": "^0.22.0",
+    "ferrugemjs": "^0.23.0",
     "ferrugemjs-router": "^0.22.0",
     "jquery": "^3.2.1",
     "rxjs": "^5.5.0",

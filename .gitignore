@@ -41,3 +41,6 @@ dist
 
 #.npmrc
 .npmrc
+
+#npm package-lock.json
+package-lock.json

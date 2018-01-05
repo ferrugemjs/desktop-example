@@ -4,7 +4,8 @@ template.init-app
   require(from='../status-bar/status-bar')
   require(from='../apps-bar/apps-bar')
   require(from='ferrugemjs-router as rt', type='namespace')
-  .main-app(data-background='${this.selectedBackgroundImage}', style={"background-image":"${'url('+this.selectedBackgroundImage+')'}"})
+  .main-app(data-background='${this.selectedBackgroundImage}', style-style!="${'color:'+this.colorE+';background:green;'}")
+    h1 ${'url('+this.selectedBackgroundImage+')'}
     status-bar
     #{'rt:router-view'}(style-name='aplication-area', hashbang='true')
       route(path='/file-manager/:baseUrl', view='desktop/file-manager/file-manager')

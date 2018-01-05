@@ -3,6 +3,7 @@ import {changeBackground} from "../actions/app";
 export class Main{
     private selectedBackgroundImage:string;
     private refresh:Function;
+    private colorE = "#facada";
     constructor(){
         this.selectedBackgroundImage = "src/desktop/init-app/assets/img/dotted_bg-min.png";
     }
