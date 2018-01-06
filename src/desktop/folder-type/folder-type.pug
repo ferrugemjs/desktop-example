@@ -1,5 +1,5 @@
 template
-    require(from='./assets/css/folder-type.css')
-    .folder-type.file-manager-item
-        .item.folder(data-path='${this.path}', click.trigger='this.toFolder')
-        .itemName ${this.name}
+  require(from='./assets/css/folder-type.scss')
+  .folder-type.file-manager-item
+    .item.folder(data-path='${this.path}', click.trigger='this.toFolder')
+      .itemName ${this.name}

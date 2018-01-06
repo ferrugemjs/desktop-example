@@ -1,0 +1,38 @@
+.status-bar{
+	width: 100%;
+	padding-top:2px;
+	padding-bottom:2px;
+	background-color: rgba(0,0,0,0.5);
+
+	> .status-bar-item{
+		height:16px;
+		width:16px;
+		margin-left:4px;
+		background-repeat: no-repeat;
+	}
+  > .is-offline{
+    background-image: url('../img/network-offline.png');
+    margin-right:4px; 
+  }
+  > .is-online{
+    background-image: url('../img/network-transmit-receive.png');
+    margin-right:4px; 
+  }
+  > .is-send{
+    background-image: url('../img/network-transmit.png');
+    margin-right:4px; 
+  }
+  > .is-received{
+    background-image: url('../img/network-receive.png');
+    margin-right:4px; 
+  }
+  > .is-error_{
+    background-image: url('../img/lpi-bug.png');
+  }
+  > .is-error{
+    background-image: url('../img/apport.png');
+  }
+  > .is-success{
+    background-image: url('../img/gtk-yes.png');
+  }
+}

@@ -15,11 +15,11 @@ template
   div
     .window-widget.system-config(if='!this.hidden')
       .titlebar
-        span.titleLabel configuracao
-        span.titleButton.pull-right.close(click.trigger='this.close')
+        span.title-label configuracao
+        span.title-button.pull-right.close(click.trigger='this.close')
       .contents
         form(style='padding:1%;width:98%', onsubmit='return false')
-          .preview-bg(style={'background-image':"${'url'+this.imgs[this.indxImg].path}"})
+          .preview-bg(style="${'background-image:url('+this.imgs[this.indxImg].path+')'}")
           label(style='margin-bottom:5px') background:
           select(change.bind='this.indxImg', style='width:90%')
             #{'for'}(each='imgItem,$indx in this.imgs')

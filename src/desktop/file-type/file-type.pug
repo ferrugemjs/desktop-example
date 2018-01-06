@@ -1,5 +1,5 @@
 template
-    require(from='./assets/css/file-type.css')
-    .file-type.file-manager-item
-      .file(class="${'item '+this.extension}")
-        .itemName ${this.name.substring(0,this.name.lastIndexOf('.'))}
+  require(from='./assets/css/file-type.scss')
+  .file-type.file-manager-item
+    div(class="${'file item '+this.extension}")
+      .itemName ${this.name.substring(0,this.name.lastIndexOf('.'))}

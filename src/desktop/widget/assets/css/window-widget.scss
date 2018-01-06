@@ -1,0 +1,44 @@
+.window-widget{
+  overflow: auto;
+  border:1px solid #919191;
+  padding: 0px;
+  background-color: #e0e4e8;
+
+  > div.titlebar{
+    background-color: #919191;
+    color:white;
+    border-bottom: solid black 1px;
+    width: 100%;
+    height: auto;
+    padding-top:2px;
+    padding-bottom:2px;
+    overflow:hidden;
+
+    > span.title-button{
+      position: relative;
+      height: 16px;
+      width: 16px;
+      padding: 0px;
+      margin: 0px 1px 0px 1px;
+      border:1px solid transparent;
+      background-position: top left;
+      background-repeat: no-repeat;
+
+      &.close{
+        background-image:url(../img/gtk-no.png);
+      }
+
+      &:hover, &.is-pressed{
+        background-color: #797979;
+        border-color:black;
+      }
+    }
+    > span.title-label{
+      color:#222; 
+      margin: 4px 0px 0px 4px;
+    }
+  }
+  > div.contents {
+    padding: 0px;
+  }
+}

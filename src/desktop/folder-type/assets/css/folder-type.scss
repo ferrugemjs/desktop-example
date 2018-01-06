@@ -1,0 +1,10 @@
+.file-manager-item.folder-type{
+	> div.folder{
+	  background-position:top center;
+	  background-repeat: no-repeat;
+	  background-image: url('../img/folder.png');
+	}
+  > div.special{
+    background: transparent url(../img/folder-recent.png) top left no-repeat;
+  }
+}

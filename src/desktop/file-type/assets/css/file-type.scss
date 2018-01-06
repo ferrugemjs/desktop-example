@@ -1,0 +1,53 @@
+.file-manager-item{
+  > div.item{
+    position : relative;
+    height : 64px;
+    width: 56px;
+    padding: 0px;
+    margin: 4px;
+
+    > div.itemName{
+      margin-top: 48px;
+      font: 10px verdana, arial, helvetica;
+      text-align: center;
+      width:100%;
+    }
+  }
+  &.file-type{
+    > div.file{
+      background-repeat:no-repeat;
+      background-position:top center;
+
+      &.txt{
+        background-image:url('../img/text-plain.png');
+      }
+      &.pdf{
+        background-image:url('../img/application-pdf.png');
+      }
+      &.js{
+        background-image:url('../img/text-x-javascript.png');
+      }
+      &.json{
+        background-image:url('../img/text-x-source.png');
+      }
+      &.sh{
+        background-image:url('../img/shellscript.png');
+      }
+      &.sql, &.sqlite, &.db{
+        background-image:url('../img/text-x-sql.png');
+      }
+      &.css{
+        background-image:url('../img/text-css.png');
+      }
+      &.zip{
+        background-image:url('../img/application-x-archive.png');
+      }
+      &.html, &.xml, &.svg, &.xcf{
+        background-image:url('../img/text-xhtml_xml.png');
+      }
+      &.png, &.jpg, &.gif{
+        background-image:url('../img/image-x-generic.png');
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 template
-	require(from='./assets/css/status-bar.css')
-	.status-bar
-	.status-bar-item.is-success
-	.status-bar-item.is-success
-	.status-bar-item.is-success
-	.status-bar-item.is-error
-	div(class="${'status-bar-item is-'+this.connectionStatus+' pull-right'}")
+  require(from='./assets/css/status-bar.scss')
+  .status-bar
+      .status-bar-item.is-success
+      .status-bar-item.is-success
+      .status-bar-item.is-success
+      .status-bar-item.is-error
+      div(class="${'status-bar-item is-'+this.connectionStatus+' pull-right'}")
 

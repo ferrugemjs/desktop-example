@@ -1,19 +1,22 @@
 template.init-app
-  require(from='./assets/css/main.css')
-  require(from='../widget/assets/css/window-widget.css')
+  require(from='./assets/css/main.scss')
+  require(from='../widget/assets/css/window-widget.scss')
   require(from='../status-bar/status-bar')
   require(from='../apps-bar/apps-bar')
   require(from='ferrugemjs-router as rt', type='namespace')
-  .main-app(data-background='${this.selectedBackgroundImage}', style-style!="${'color:'+this.colorE+';background:green;'}")
-    h1 ${'url('+this.selectedBackgroundImage+')'}
+  .main-app.full-width.full-height(
+    data-background='${this.selectedBackgroundImage}'
+    , style="${'background-image:url('+this.selectedBackgroundImage+')'}"
+    , data-title="${'background-image:url('+this.selectedBackgroundImage+')'}"
+    )
     status-bar
-    #{'rt:router-view'}(style-name='aplication-area', hashbang='true')
+    rt:router-view(style-name='aplication-area', hashbang='true')
       route(path='/file-manager/:baseUrl', view='desktop/file-manager/file-manager')
       route(path='/', redirect='/index.html')
-    #{'rt:router-view'}(style-name='sub-aplication-area', hashbang='true')
+    rt:router-view(style-name='sub-aplication-area', hashbang='true')
       route(path='/system-config', view='desktop/system-config/system-config')
     .main-apps-bar
       apps-bar
       script.
         console.log('teste');  
-      #{'rt:router-redirect'}(path='/file-manager/example', timeout='2000')
+      rt:router-redirect(path='/file-manager/example', timeout='2000')

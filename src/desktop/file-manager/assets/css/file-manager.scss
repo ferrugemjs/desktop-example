@@ -4,11 +4,11 @@
 		width: 100%;
 		position:absolute;
 		> div.titlebar{
-			> span.titleButton.search{
+			> span.title-button.search{
  				background-image:url('../img/zoom-fit.png');
 			}
 		}
-		> .search-file{
+		> .contents > div > div > .search-file{
 			border:1px solid transparent;
 			margin:4px 0px 8px 10px;
 			background-position: center right;
@@ -22,7 +22,12 @@
 			height: 20px;
 			background-color:#efefef;
 			position:absolute;
-			bottom:0px;			
+			bottom:0px;	
+			padding-top:6px;
+
+			> span{
+				margin-left:6px;
+			}	
 		}
 	}
 }
